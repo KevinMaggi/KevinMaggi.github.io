@@ -20,6 +20,9 @@ group :jekyll_plugins do
   gem "jekyll-compose", "~> 0.12.0"
 end
 
+# To fix the bunch of warnings during the Jekyll serving, due to incompatible syntax of Minimal Mistakes' SASS files with Dart SASS (warning until Dart SASS 2.0 release, then error), block the version of jekyll-sass-converter plugin to 2.2.0, which uses deprecated SASSC instead of Dart SASS
+# gem 'jekyll-sass-converter', '~> 2.2'
+
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem and associated library.
 platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo", ">= 1", "< 3"
