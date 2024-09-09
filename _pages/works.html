@@ -1,0 +1,444 @@
+---
+title: Works
+permalink: /Works/
+
+layout: single
+classes: wide
+author_profile: true
+toc: true
+toc_label: My works
+toc_icon: book-open
+
+excerpt: "A list of my works, publications and thesis"
+---
+
+<p>Here you can find the complete list of all my works, publications and thesis. You can also find my publications on my <a href="https://scholar.google.com/citations?user=18ohcmAAAAAJ" rel="noopener noreferrer nofollow external me"><i class="fa fa-brands fa-google-scholar"></i>Google Scholar profile</a> and my other works, such as university projects I'm proud of, on my <a href="https://github.com/KevinMaggi" rel="noopener noreferrer nofollow external me"><i class="fa fa-brands fa-github"></i>Github profile</a>.</p>
+
+<h2 id="publications">Publications</h2>
+
+<ul id="publications-list" class="list-unstyled">
+{%- for publication in site.data.publications -%}
+    <li id="{{- publication.key -}}" class="publication card">
+        <div class="info card-header">
+            <span class="year badge rounded-pill text-bg-secondary">
+                {{- publication.year -}}
+            </span>
+            <span class="type badge rounded-pill text-bg-primary">
+                <span>
+                {%- case publication.venue_type -%}
+                    {%- when "workshop" -%}
+                        Workshop paper
+                    {%- when "conference" -%}
+                        Conference paper
+                    {%- when "journal" -%}
+                        Journal article
+                    {%- else -%}
+                        Publication
+                {%- endcase -%}
+                </span>
+            {%- if publication.pub_type -%}
+                &nbsp;|&nbsp;<small>{{- publication.pub_type -}}</small>
+            {%- endif -%}
+            </span>
+        {% if publication.extension_of %}
+            <a href="#{{- publication.extension_of -}}" class="extension badge rounded-pill text-bg-info link-offset-1" title="Go to the extended work">
+                <span>extension of</span><i class="fa fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        {%- endif -%}
+        {% if publication.extended_by %}
+            <a href="#{{- publication.extended_by -}}" class="extension badge rounded-pill text-bg-info link-offset-1" title="Go to the extension work">
+                <span>extended by</span><i class="fa fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        {%- endif -%}
+        </div>
+        <div class="card-body">
+            <div class="authors">
+                <span>
+                {%- for author in publication.authors -%}
+                    <span class="{%- if author == "K. Maggi" -%} myself {%- endif -%}">
+                        {{- author -}}
+                    </span>
+                    {%- unless forloop.last -%}, {% endunless -%}
+                {%- endfor -%}
+                </span>
+            </div>
+            <div class="title">
+                {{- publication.title -}}
+            </div>
+            <div class="venue">
+                <span class="venue_name">
+                {%- if publication.venue.edition -%}
+                    {{- publication.venue.edition -}}
+                    <sup>
+                    {%- assign units = publication.venue.edition | modulo: 10 -%}
+                    {%- assign tens_and_units = publication.venue.edition | modulo: 100 -%}
+                    {%- if units == 1 and tens_and_units != 11 -%}
+                        st
+                    {%- elsif units == 2 and tens_and_units != 12 -%}
+                        nd
+                    {%- elsif units == 3 and tens_and_units != 13 -%}
+                        rd
+                    {%- else -%}
+                        th
+                    {%- endif -%}
+                    </sup>&nbsp;
+                {%- endif -%}
+                    {{- publication.venue.name -}}
+                {%- if publication.venue.issue -%}
+                    &nbsp;{{- publication.venue.issue -}}
+                {%- endif -%}
+                {%- if publication.venue.acronym -%}
+                    &nbsp;( {{- publication.venue.acronym -}} )
+                {%- endif -%}
+                </span>
+            {%- if publication.venue.special -%}
+                <span class="venue_special">, special issue on
+                    <span class="special_issue">
+                        {{- publication.venue.special -}}
+                    </span>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </span>
+            {%- endif -%}
+            {%- if publication.venue.colocation -%}
+                <span class="venue_colocation">, co-located with
+                    <span class="colocation_name">
+                    {%- if publication.venue.colocation.edition -%}
+                        {{- publication.venue.colocation.edition -}}
+                        <sup>
+                        {%- assign units = publication.venue.colocation.edition | modulo: 10 -%}
+                        {%- assign tens_and_units = publication.venue.colocation.edition | modulo: 100 -%}
+                        {%- if units == 1 and tens_and_units != 11 -%}
+                            st
+                        {%- elsif units == 2 and tens_and_units != 12 -%}
+                            nd
+                        {%- elsif units == 3 and tens_and_units != 13 -%}
+                            rd
+                        {%- else -%}
+                            th
+                        {%- endif -%}
+                        </sup>&nbsp;
+                    {%- endif -%}
+                        {{- publication.venue.colocation.name -}}
+                    {%- if publication.venue.colocation.acronym -%}
+                        &nbsp;( {{- publication.venue.colocation.acronym -}} )
+                    {%- endif -%}
+                    </span>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </span>
+            {%- endif -%}
+            {%- if publication.venue.year -%},
+                <span class="venue_year">
+                    {{- publication.venue.year -}}
+                </span>
+            {%- endif -%}
+            </div>
+        {%- if publication.awards -%}
+            <ul class="awards list-unstyled">
+            {% for award in publication.awards %}
+                <li class="award badge rounded-pill text-bg-success">
+                    <i class="fa-solid fa-award"></i>
+                    <span class="award">
+                        {{- award -}}
+                    </span>
+                </li>
+            {% endfor %}
+            </ul>
+        {%- endif -%}
+        </div>
+        <div class="details card-footer">
+            <div class="controls">
+            {% if publication.abstract %}
+                <button type="button" name="Abstract" aria-label="Show" title="Toggle abstract" aria-controls="{{- publication.key -}}_abstract" aria-expanded="false" class="abstract-btn btn btn-sm btn-outline-dark">
+                    <i class="fa-solid fa-align-justify fa-fw"></i>
+                    <span>Abstract</span>
+                </button>
+            {% else %}
+                <div title="No abstract" aria-hidden="true" class="abstract-btn btn btn-sm placeholder">
+                    <i class="fa-solid fa-fw"></i>
+                </div>
+            {% endif %}
+            {% if publication.bibtex %}
+                <button type="button" name="Reference" aria-label="Show" title="Toggle suggested reference" aria-controls="{{- publication.key -}}_reference" aria-expanded="false" class="reference-btn btn btn-sm btn-outline-dark">
+                    <i class="fa-solid fa-quote-left fa-fw"></i>
+                    <span>BibTeX</span>
+                </button>
+            {% else %}
+                <div title="No suggested reference" aria-hidden="true" class="abstract-btn btn btn-sm placeholder">
+                    <i class="fa-solid fa-fw"></i>
+                </div>
+            {% endif %}
+            </div>
+            <div class="links">
+            {% if publication.manuscript %}
+                <a href="{{- site.url -}}/assets/publications/{{- publication.manuscript -}}.pdf" target="_blank" title="Author's Accepted Manuscript (post-print)" class="manuscript btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-file-lines fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">Link to Author's Accepted Manuscript (post-print)</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="manuscript btn btn-sm placeholder" aria-hidden="true" title="No manuscript">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if publication.doi %}
+                <a href="https://doi.org/{{- publication.doi -}}" target="_blank" title="DOI link" class="doi btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="ai ai-doi ai-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">DOI link to publication</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="doi btn btn-sm placeholder" aria-hidden="true" title="No DOI link">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if publication.repository %}
+                <a href="{{- publication.repository -}}" target="_blank" title="Repository" class="repository btn btn-sm btn-outline-primary">
+                {%- if publication.repository contains 'github' -%}
+                    <i class="fa-brands fa-github fa-fw"></i>
+                {%- elsif publication.repository contains 'gitlab' -%}
+                    <i class="fa-brands fa-gitlab fa-fw"></i>
+                {%- else -%}
+                    <i class="fa-brands fa-git-alt fa-fw"></i>
+                {%- endif -%}
+                    <span class="visually-hidden">Link to repository</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="repository btn btn-sm placeholder" aria-hidden="true" title="No repository">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if publication.rep_pkg %}
+                <a href="{{- publication.rep_pkg -}}" target="_blank" title="Replication Package" class="rep-pkg btn btn-sm btn-outline-primary">
+                {%- if publication.rep_pkg contains 'figshare' -%}
+                    <i class="ai ai-figshare ai-fw"></i>
+                {%- elsif publication.rep_pkg contains 'zenodo' -%}
+                    <i class="ai ai-zenodo ai-fw"></i>
+                {%- else -%}
+                    <i class="fa-solid fa-box-archive fa-fw"></i>
+                {%- endif -%}
+                    <span class="visually-hidden">Link to replication package</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="rep-pkg btn btn-sm placeholder" aria-hidden="true" title="No Replication Package">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if publication.slides %}
+                <a href="{{- site.url -}}/assets/slides/{{- publication.slides -}}.pdf" target="_blank" title="Slides" class="slides btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-chalkboard fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">Link to slides</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="slides btn btn-sm placeholder" aria-hidden="true" title="No slides">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            </div>
+        {% if publication.abstract %}
+            <div class="abstract" id="{{- publication.key -}}_abstract">
+                <hr>
+                <p>
+                    {{- publication.abstract -}}
+                </p>
+            </div>
+        {% endif %}
+        {% if publication.bibtex %}
+            <div class="reference" id="{{- publication.key -}}_reference">
+                <hr>
+            {%- highlight bibtex -%}
+                {{- publication.bibtex -}}
+            {%- endhighlight -%}
+            </div>
+        {% endif %}
+        </div>
+    </li>
+{%- endfor -%}
+</ul>
+
+
+<div id="statistics" class="callout callout-info">
+    <p><strong>Some statistics:</strong></p>
+    <ul id="statistics-list">
+        <li>currently, I have co-authored <b>{{- site.data.publications.size -}}</b> publications;</li>
+        <li>currently, my <i>h</i>-index is <b>1</b>;</li>
+        <li>currently, my Erdős number is <b>5</b>.</li>
+    </ul>
+</div>
+
+
+<h2 id="theses">Theses</h2>
+
+<ul id="theses-list" class="list-unstyled">
+{%- for thesis in site.data.theses -%}
+    <li id="{{- thesis.type -}}_{{- thesis.year -}}" class="thesis card">
+        <div class="info card-header">
+            <span class="year badge rounded-pill text-bg-secondary">
+                {{- thesis.year -}}
+            </span>
+            <span class="type badge rounded-pill text-bg-primary">
+                <span>
+                {%- case thesis.type -%}
+                    {%- when "master" -%}
+                        2<sup>nd</sup> Cycle (Master's) Degree
+                    {%- when "bechelor" -%}
+                        1<sup>st</sup> Cycle (Bechelor's) Degree
+                    {%- else -%}
+                        Thesis
+                {%- endcase -%}
+                </span>
+                {%- if thesis.eqf -%}
+                &nbsp;|&nbsp;<small>EQF {{ thesis.eqf }}</small>
+            {%- endif -%}
+            </span>
+        </div>
+        <div class="card-body">
+            <div class="institution">
+                <span class="label">Institution</span>: {{ thesis.institution -}}
+            </div>
+            <div class="course">
+                <span class="label">Course of study</span>: {{ thesis.course -}}
+            </div>
+            <hr>
+            <div class="title">
+                <span class="label">Title</span>: <span>{{ thesis.title -}}</span>
+            </div>
+            <div class="supervisors">
+                <span class="label">Supervisors</span>: 
+                <span>
+                {%- for supervisor in thesis.supervisors -%}
+                    {{- supervisor -}}
+                    {%- unless forloop.last -%}, {% endunless -%}
+                {%- endfor -%}
+                </span>
+            </div>
+            <div class="co-supervisors">
+                <span class="label">Co-supervisors</span>: 
+                <span>
+                {%- for co-supervisor in thesis.co-supervisors -%}
+                    {{- co-supervisor -}}
+                    {%- unless forloop.last -%}, {% endunless -%}
+                {%- endfor %}
+                    </span>
+            </div>
+        </div>
+        <div class="details card-footer">
+            <div class="links">
+            {% if thesis.manuscript %}
+                <a href="{{- site.url -}}/assets/theses/{{- thesis.manuscript -}}.pdf" target="_blank" title="Author's Accepted Manuscript (post-print)" class="manuscript btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-file-lines fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">Link to Author's Accepted Manuscript (post-print)</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="manuscript btn btn-sm placeholder" aria-hidden="true" title="No manuscript">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if thesis.repository %}
+                <a href="{{- thesis.repository -}}" target="_blank" title="Repository" class="repository btn btn-sm btn-outline-primary">
+                {%- if thesis.repository contains 'github' -%}
+                    <i class="fa-brands fa-github fa-fw"></i>
+                {%- elsif thesis.repository contains 'gitlab' -%}
+                    <i class="fa-brands fa-gitlab fa-fw"></i>
+                {%- else -%}
+                    <i class="fa-brands fa-git-alt fa-fw"></i>
+                {%- endif -%}
+                    <span class="visually-hidden">Link to repository</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="repository btn btn-sm placeholder" aria-hidden="true" title="No repository">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if thesis.slides %}
+                <a href="{{- site.url -}}/assets/slides/{{- thesis.slides -}}.pdf" target="_blank" title="Slides" class="slides btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-chalkboard fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">Link to slides</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="slides btn btn-sm placeholder" aria-hidden="true" title="No slides">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </li>
+{%- endfor -%}
+</ul>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Add the class 'highlight' to all <pre> tags. Needed to make the copy-to-clipboard button appear, having rendered the code with the Liquid \{\% highlight \%\} tag
+    document.querySelectorAll('#publications figure.highlight > pre')
+      .forEach(function (pre) {
+          pre.classList.add('highlight');
+      });
+
+
+    document.querySelectorAll('#publications button')
+      .forEach(function (button) {
+          button.addEventListener("click", function() {
+              var key = button.closest(".publication").id;
+              var type = button.classList[0].split("-")[0];
+
+              var open =  document.querySelector("#"+key+"_"+type).classList.contains('show');
+
+              document.querySelectorAll('.abstract, .reference')
+                .forEach(function (tab) {
+                    tab.classList.remove('show');
+                });
+              
+              document.querySelectorAll('.abstract-btn, .reference-btn')
+                .forEach(function (btn) {
+                    btn.classList.remove('active');
+                    btn.setAttribute("aria-expanded", false);
+                    btn.setAttribute("aria-label", "Show");
+                });
+
+              if (open) {
+                  document.querySelector("#"+key+"_"+type).classList.remove('show');
+                  button.setAttribute("aria-expanded", false);
+                  button.classList.remove('active');
+                  button.setAttribute("aria-label", "Show");
+              }
+              else {
+                  document.querySelector("#"+key+"_"+type).classList.add('show');
+                  button.setAttribute("aria-expanded", true);
+                  button.classList.add('active');
+                  button.setAttribute("aria-label", "Hide")
+              }
+          });
+    });
+});
+</script>

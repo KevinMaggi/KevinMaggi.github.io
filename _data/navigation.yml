@@ -2,6 +2,9 @@ main:
   - title: "CV"
     url: /cv/
     description: "Who I am, what I have studied and what I am doing currently"
-  - title: "Publications"
-    url: /publications/
-    description: "List of my published works"
+  - title: "Works"
+    url: /works/
+    description: "List of my works, publications and thesis"
+  - title: "Quotations"
+    url: /quotations/
+    description: "List of my favourite quotations"

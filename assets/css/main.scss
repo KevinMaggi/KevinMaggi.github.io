@@ -1,0 +1,19 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+search: false
+---
+
+@charset "utf-8";
+
+/* Override of Minimal Mistakes' property */
+$intro-transition: none;
+$global-transition: none;  /* If disabled Lighthouse doesn't work */
+
+/* Import of default Minimal Mistake's stylesheets */
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* Import of custom stylesheets */
+
+@import "works"

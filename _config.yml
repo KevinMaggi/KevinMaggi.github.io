@@ -29,9 +29,10 @@ github_username:  KevinMaggi
 # Build settings
 theme: minimal-mistakes-jekyll
 
-# plugins:
-#   - jekyll-seo-tag
-#   - jekyll-compose
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-compose
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -69,7 +70,7 @@ timezone: Europe/Rome
 # General info
 # title: "Kevin Maggi" # Specified above in Jekyll configurations
 title_separator: "|"
-# subtitle: "Personal Website"
+subtitle: "Personal Website"
 name: "Kevin Maggi"
 repository: "KevinMaggi/KevinMaggi.github.io"
 
@@ -84,41 +85,62 @@ masthead_title: "KEVIN MAGGI"
 
 breadcrumbs: true
 
+# Functionalities
 enable_copy_code_button: true
 atom_feed:
   hide: true
 search: true
+search_full_content: true
+search_provider: lunr
+lunr:
+  search_within_pages: true
 
 # SEO
-google_site_verification: "yourVerificationCode" # TODO
-bing_site_verification: "TODO" # TODO
-twitter:
-  username: "Makev97" # TODO
-facebook:
-  app_id:  # A Facebook app ID
-  publisher:  # A Facebook page URL or ID of the publishing entity
-  username: # TODO
-og_image: "/assets/images/site-logo.png" # TODO
+google_site_verification: "XVhYrKU7U1abnGGG4fziAk9aictckREE9F3ajHeEYlA"
+bing_site_verification: "3EA7B155211A0F10071160AF3C6BAEC5"
+twitter: # TODO
+  username: "MaKev97"
+facebook: # TODO
+  publisher: "MaKev97" # ?
+  username: "MaKev97"
+og_image: "/assets/images/masthead_logo.png" # TODO
 social:
   type: Person
   name: "Kevin Maggi"
-  links: TODO
-    - "https://twitter.com/yourTwitter"
-    - "https://www.facebook.com/yourFacebook"
-    - "https://instagram.com/yourProfile"
-    - "https://www.linkedin.com/in/yourprofile"
+  links:
+    - "https://twitter.com/MaKev97"
+    - "https://www.facebook.com/MaKev97/"
+    - "https://www.instagram.com/makev97/"
+    - "https://www.linkedin.com/in/makev97"
+    - "https://www.researchgate.net/profile/Kevin-Maggi-4"
 
 # Author
 author:
-  name     : "Kevin Maggi"
-  avatar   : "/assets/images/bio-photo.jpg"
-  bio      : >-
-            **M.Sc.** in *Computer Engineering* <br>
-            **Scholarship researcher** at [*UNIFI*](https://www.unifi.it/it) ([*STLab*](https://stlab.dinfo.unifi.it))
-  location : "Prato, Italy"
+  name: "Kevin Maggi"
+  avatar: "/assets/images/bio-photo.jpg"
+  bio: >-
+    **M.Sc.** in *Computer Engineering* <br>
+    **Scholarship researcher** at [*UNIFI*](https://www.unifi.it/it) ([*STLab*](https://stlab.dinfo.unifi.it))
+  location: "Prato, Italy"
+  email: #TODO
   links:
+    - label: "Google Scholar"
+      icon: "fa-fw fa-brands fa-google-scholar"
+      url: "https://scholar.google.com/citations?user=18ohcmAAAAAJ"
+    - label: "ORCID"
+      icon: "fa-fw fa-brands fa-orcid"
+      url: "https://orcid.org/0009-0001-0651-805X"
+    - label: "Scopus"
+      icon: "ai ai-scopus ai-fw"
+      url: "https://www.scopus.com/authid/detail.uri?authorId=59202467200"
+    - label: "ResearchGate"
+      icon: "fa-fw fa-brands fa-researchgate"
+      url: "https://www.researchgate.net/profile/Kevin-Maggi-4"
+    - label: "LinkedIn"
+      icon: "fa-fw fa-brands fa-linkedin"
+      url: "https://www.linkedin.com/in/makev97"
     - label: "GitHub"
-      icon: "fab fa-fw fa-github"
+      icon: "fa-fw fa-brands fa-github"
       url: "https://github.com/KevinMaggi"
 
 # Footer
@@ -141,3 +163,7 @@ compress_html:
   clippings: all
   ignore:
     envs: development  # disable compression in dev environment
+
+# head_scripts:
+#   - /assets/js/publications.js
+  
