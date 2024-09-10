@@ -27,3 +27,25 @@ $global-transition: none;  /* If disabled Lighthouse doesn't work */
 .sidebar .social-icons li:first-child {
     margin-bottom: 20px;
 }
+
+.sidebar .social-icons {
+    .fa-researchgate {
+        color: #0AC5B2;
+    }
+    .fa-scopus {
+        color: #FF7600;
+    }
+    .fa-orcid {
+        color: #9CC732;
+    }
+    .fa-google-scholar {
+        color: #3776EA;
+    }
+    .fa-github {
+        color: #171515;
+    }
+}
+
+.sidebar .author__avatar img {
+    max-width: 150px !important;
+}

@@ -1,20 +1,26 @@
 ---
-title: Works
+title: My research and works
 permalink: /works/
 
 layout: single
 classes: wide
+
+excerpt: "My research activity through the list of my works, publications, presentations, talks and theses"
+header:
+  overlay_color: "#5e616c"
+  overlay_image: assets/images/headers/works.jpg
+  caption:
+
 author_profile: true
+
 toc: false  # Removed because not HTML-valid
 toc_label: My works
 toc_icon: book-open
-
-excerpt: "A list of my works, publications and thesis"
 ---
 
-<p>Here you can find the complete list of all my works, publications and thesis. You can also find my publications on my <a href="https://scholar.google.com/citations?user=18ohcmAAAAAJ" rel="noopener noreferrer nofollow external me"><i class="fa fa-brands fa-google-scholar"></i>Google Scholar profile</a> and my other works, such as university projects I'm proud of, on my <a href="https://github.com/KevinMaggi" rel="noopener noreferrer nofollow external me"><i class="fa fa-brands fa-github"></i>Github profile</a>.</p>
+<p>Here you can find the complete list of my publications, that you can find also on my <a href="https://scholar.google.com/citations?user=18ohcmAAAAAJ" rel="noopener noreferrer nofollow external me"><i class="fa fa-brands fa-google-scholar"></i>Google Scholar profile</a>, presentations I've given, talks I've been invited to, and my thesis works. You can find my other works, such as university projects I'm proud of, on my <a href="https://github.com/KevinMaggi" rel="noopener noreferrer nofollow external me"><i class="fa fa-brands fa-github"></i>Github profile</a>.</p>
 
-<h2 id="publications">Publications</h2>
+<h2 id="publications"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>&nbsp;Publications</h2>
 
 <ul id="publications-list" class="list-unstyled">
 {%- for publication in site.data.publications -%}
@@ -285,7 +291,114 @@ excerpt: "A list of my works, publications and thesis"
 </div>
 
 
-<h2 id="theses">Theses</h2>
+<h2 id="presentations"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i>&nbsp;Presentations &amp; Talks</h2>
+
+<ul id="presentations-list" class="list-unstyled">
+{%- for presentation in site.data.presentations -%}
+    <li id="{{- presentation.key -}}" class="presentation card">
+        <div class="info card-header">
+            <span class="year badge rounded-pill text-bg-secondary">
+                {{- presentation.year -}}
+            </span>
+            <span class="type badge rounded-pill text-bg-primary">
+                <span>
+                {%- case presentation.event_type -%}
+                    {%- when "presentation" -%}
+                        Presentation
+                    {%- when "talk" -%}
+                        Invited talk
+                    {%- else -%}
+                        Presentation
+                {%- endcase -%}
+                </span>
+                {%- if presentation.venue_type -%}
+                &nbsp;|&nbsp;<small>{{ presentation.venue_type }}</small>
+            {%- endif -%}
+            </span>
+        {% if presentation.publication %}
+            <a href="#{{- presentation.publication -}}" class="relating-to badge rounded-pill text-bg-info link-offset-1" title="Go to the related publication">
+                <span>relating to</span><i class="fa fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        {%- endif -%}
+        </div>
+        <div class="card-body">
+            <div class="title">
+                {{- presentation.title -}}
+            </div>
+            <div class="venue">
+                <span class="venue_name">
+                    {{- presentation.venue.name -}}
+                {%- if presentation.venue.acronym -%}
+                    &nbsp;( {{- presentation.venue.acronym -}} )
+                {%- endif -%}
+                </span>
+            {%- if presentation.venue.place -%},
+                <span class="venue_place">
+                    {{- presentation.venue.place -}}
+                </span>
+            {%- endif -%}
+            {%- if presentation.venue.year -%},
+                <span class="venue_year">
+                    {{- presentation.venue.year -}}
+                </span>
+            {%- endif -%}
+            </div>
+        </div>
+        <div class="details card-footer">
+            <div class="links">
+            {% if presentation.slides %}
+                <a href="{{- site.url -}}/assets/slides/{{- presentation.slides -}}.pdf" target="_blank" title="Slides" class="slides btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-chalkboard fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">Link to slides</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="slides btn btn-sm placeholder" aria-hidden="true" title="No slides">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if presentation.video %}
+                <a href="{%- if presentation.video contains 'https://' or presentation.video contains 'www.' -%}{{- presentation.video -}}{%- else -%}{{- site.url -}}/assets/videos/{{- presentation.video -}}.pdf{%- endif -%}" target="_blank" title="Video" class="slides btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-chalkboard fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">Link to slides</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="slides btn btn-sm placeholder" aria-hidden="true" title="No video">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if presentation.poster %}
+                <a href="{%- if presentation.poster contains 'https://' or presentation.poster contains 'www.' -%}{{- presentation.poster -}}{%- else -%}{{- site.url -}}/assets/posters/{{- presentation.poster -}}.pdf{%- endif -%}" target="_blank" title="Poster" class="slides btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-chalkboard fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">Link to slides</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="slides btn btn-sm placeholder" aria-hidden="true" title="No poster">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </li>
+{%- endfor -%}
+</ul>
+
+
+<h2 id="theses"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i>&nbsp;Theses</h2>
 
 <ul id="theses-list" class="list-unstyled">
 {%- for thesis in site.data.theses -%}
@@ -396,6 +509,8 @@ excerpt: "A list of my works, publications and thesis"
     </li>
 {%- endfor -%}
 </ul>
+
+<p id="copyright">All the linked documents are made available to ensure timely dissemination of scholarly and technical work on a non-commercial basis. Copyright and all rights therein are retained by the authors or by other copyright holders. It is expected that all individuals using this information will adhere to the same terms and conditions invoked by each copyright holder. In most cases, these works may not be reposted without the explicit permission of the copyright holders.</p>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {

@@ -141,6 +141,66 @@ p .fa {
     color: rgb(5, 81, 96);
 }
 
+#presentations-list {
+
+    .presentation {
+        
+        .info {
+        
+            .year {
+
+            }
+
+            .type {
+
+                small {
+                    font-weight: lighter;
+                }
+            }
+            
+            .relating-to {
+                text-decoration-style: dashed;
+                
+                &:hover * {
+                    opacity: 50%;
+                }
+                
+                i.fa {
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .title {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .venue {
+            
+            .venue_name {
+                font-style: italic;
+            }
+
+        }
+        
+        .links {
+                margin: auto;
+                width: 235px;
+                display: flex;
+                justify-content: space-between;
+
+                .manuscript, .repository, .slides {
+
+                }
+
+                .placeholder {
+                    cursor: auto;
+                }
+            }
+    }
+}
+
 #statistics {
     
     p {
@@ -160,6 +220,9 @@ p .fa {
             
             .year, .type {
                 
+                small {
+                    font-weight: lighter;
+                }
             }
         }
         
@@ -206,4 +269,8 @@ p .fa {
             }
         }
     }
+}
+
+#copyright {
+    font-size: 0.66em;
 }

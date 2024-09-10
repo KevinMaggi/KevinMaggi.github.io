@@ -1,0 +1,44 @@
+# - key: venue_year_first-word
+#   event_type: presentation | talk
+#   venue_type: conference | workshop
+#   title: "Presentation title"
+#   year: xxxx
+#   venue:
+#     name: "Venue name"
+#     acronym: xxx
+#     year: xxxx
+#     place: city, state
+#   slides: 
+#   poster: 
+#   video: 
+#   publication: unique key of related publication
+
+
+- key: ease2024claim
+  event_type: presentation
+  venue_type: conference
+  title: "CLAIM: a Lightweight Approach to Identify Microservices in Dockerized Environments"
+  year: 2024
+  venue:
+    name: "International Conference on Evaluation and Assessment in Software Engineering"
+    acronym: EASE
+    year: 2024
+    place: Salerno, Italy
+  slides: ease2024
+  poster: 
+  video: 
+  publication: Maggi2024CLAIM
+- key: learner2024learning
+  event_type: presentation
+  venue_type: workshop
+  title: "Learning Programming without Teachers: An Ongoing Ethnographic Study at 42"
+  year: 2024
+  venue:
+    name: "Workshop on evaLuation and assEssment in softwARe eNgineers’ Education and tRaining" 
+    acronym: LEARNER
+    year: 2024
+    place: Salerno, Italy
+  slides: learner2024
+  poster: 
+  video: 
+  publication: Pollini2024Learning
