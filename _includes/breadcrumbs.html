@@ -3,8 +3,6 @@
 {%- assign crumb_path = site.category_archive.path -%}
 {%- assign crumbs = page.url | split: '/' -%}
 
-{%- comment -%}Separators added via CSS ::before included in head/custom.html{%- endcomment -%}
-
 <nav class="breadcrumbs" aria-label="breadcrumb">
     <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
     {%- assign i = 1 -%}
@@ -16,6 +14,7 @@
                 </a>
                 <meta itemprop="position" content="{{ i }}" />
             </li>
+        {%- comment -%}Separators added via CSS ::before included in head/custom.html{%- endcomment -%}
         {% endif %}
         {% if forloop.last %}
             <li class="current breadcrumb-item active" aria-current="page" {% if page.locale %} lang="{{ page.locale }}" {% endif %}>{{ page.title }}</li>
@@ -27,6 +26,7 @@
                 </a>
                 <meta itemprop="position" content="{{ i }}" />
             </li>
+        {%- comment -%}Separators added via CSS ::before included in head/custom.html{%- endcomment -%}
         {% endif %}
     {% endfor %}
     </ol>
