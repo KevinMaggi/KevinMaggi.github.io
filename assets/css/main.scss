@@ -49,3 +49,8 @@ $global-transition: none;  /* If disabled Lighthouse doesn't work */
 .sidebar .author__avatar img {
     max-width: 150px !important;
 }
+
+.page__hero--overlay {
+    padding: 2em 0;
+    margin-bottom: 1em;
+}
