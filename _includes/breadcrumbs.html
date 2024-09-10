@@ -3,12 +3,6 @@
 {%- assign crumb_path = site.category_archive.path -%}
 {%- assign crumbs = page.url | split: '/' -%}
 
-<style>
-    .breadcrumb-item:not(:first-chid)::before {
-        content: " {{ site.data.ui-text[site.locale].breadcrumb_separator }} ";
-    }
-</style>
-
 {%- comment -%}Separators added via CSS ::before included in head/custom.html{%- endcomment -%}
 
 <nav class="breadcrumbs" aria-label="breadcrumb">
