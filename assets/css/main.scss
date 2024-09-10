@@ -16,4 +16,10 @@ $global-transition: none;  /* If disabled Lighthouse doesn't work */
 
 /* Import of custom stylesheets */
 
-@import "works"
+@import "works";
+    
+    
+/* Generic customizations */
+.breadcrumbs ol {
+    margin-top: 20px;
+}
