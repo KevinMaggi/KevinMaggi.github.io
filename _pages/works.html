@@ -291,63 +291,63 @@ toc_icon: book-open
 </div>
 
 
-<h2 id="presentations"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i>&nbsp;Presentations &amp; Talks</h2>
+<h2 id="speakings"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i>&nbsp;Speakings</h2>
 
-<ul id="presentations-list" class="list-unstyled">
-{%- for presentation in site.data.presentations -%}
-    <li id="{{- presentation.key -}}" class="presentation card">
+<ul id="speakings-list" class="list-unstyled">
+{%- for speaking in site.data.speakings -%}
+    <li id="{{- speaking.key -}}" class="speaking card">
         <div class="info card-header">
             <span class="year badge rounded-pill text-bg-secondary">
-                {{- presentation.year -}}
+                {{- speaking.year -}}
             </span>
             <span class="type badge rounded-pill text-bg-primary">
                 <span>
-                {%- case presentation.event_type -%}
+                {%- case speaking.event_type -%}
                     {%- when "presentation" -%}
                         Presentation
                     {%- when "talk" -%}
                         Invited talk
                     {%- else -%}
-                        Presentation
+                        Speaking
                 {%- endcase -%}
                 </span>
-                {%- if presentation.venue_type -%}
-                &nbsp;|&nbsp;<small>{{ presentation.venue_type }}</small>
+                {%- if speaking.venue_type -%}
+                &nbsp;|&nbsp;<small>{{ speaking.venue_type }}</small>
             {%- endif -%}
             </span>
-        {% if presentation.publication %}
-            <a href="#{{- presentation.publication -}}" class="relating-to badge rounded-pill text-bg-info link-offset-1" title="Go to the related publication">
+        {% if speaking.publication %}
+            <a href="#{{- speaking.publication -}}" class="relating-to badge rounded-pill text-bg-info link-offset-1" title="Go to the related publication">
                 <span>relating to</span><i class="fa fa-solid fa-arrow-up-right-from-square"></i>
             </a>
         {%- endif -%}
         </div>
         <div class="card-body">
             <div class="title">
-                {{- presentation.title -}}
+                {{- speaking.title -}}
             </div>
             <div class="venue">
                 <span class="venue_name">
-                    {{- presentation.venue.name -}}
-                {%- if presentation.venue.acronym -%}
-                    &nbsp;( {{- presentation.venue.acronym -}} )
+                    {{- speaking.venue.name -}}
+                {%- if speaking.venue.acronym -%}
+                    &nbsp;( {{- speaking.venue.acronym -}} )
                 {%- endif -%}
                 </span>
-            {%- if presentation.venue.place -%},
+            {%- if speaking.venue.place -%},
                 <span class="venue_place">
-                    {{- presentation.venue.place -}}
+                    {{- speaking.venue.place -}}
                 </span>
             {%- endif -%}
-            {%- if presentation.venue.year -%},
+            {%- if speaking.venue.year -%},
                 <span class="venue_year">
-                    {{- presentation.venue.year -}}
+                    {{- speaking.venue.year -}}
                 </span>
             {%- endif -%}
             </div>
         </div>
         <div class="details card-footer">
             <div class="links">
-            {% if presentation.slides %}
-                <a href="{{- site.url -}}/assets/slides/{{- presentation.slides -}}.pdf" target="_blank" title="Slides" class="slides btn btn-sm btn-outline-primary">
+            {% if speaking.slides %}
+                <a href="{{- site.url -}}/assets/slides/{{- speaking.slides -}}.pdf" target="_blank" title="Slides" class="slides btn btn-sm btn-outline-primary">
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                     <i class="fa-solid fa-chalkboard fa-fw"></i>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
@@ -361,8 +361,8 @@ toc_icon: book-open
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                 </div>
             {% endif %}
-            {% if presentation.video %}
-                <a href="{%- if presentation.video contains 'https://' or presentation.video contains 'www.' -%}{{- presentation.video -}}{%- else -%}{{- site.url -}}/assets/videos/{{- presentation.video -}}.pdf{%- endif -%}" target="_blank" title="Video" class="slides btn btn-sm btn-outline-primary">
+            {% if speaking.video %}
+                <a href="{%- if speaking.video contains 'https://' or speaking.video contains 'www.' -%}{{- speaking.video -}}{%- else -%}{{- site.url -}}/assets/videos/{{- speaking.video -}}.pdf{%- endif -%}" target="_blank" title="Video" class="slides btn btn-sm btn-outline-primary">
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                     <i class="fa-solid fa-chalkboard fa-fw"></i>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
@@ -376,8 +376,8 @@ toc_icon: book-open
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                 </div>
             {% endif %}
-            {% if presentation.poster %}
-                <a href="{%- if presentation.poster contains 'https://' or presentation.poster contains 'www.' -%}{{- presentation.poster -}}{%- else -%}{{- site.url -}}/assets/posters/{{- presentation.poster -}}.pdf{%- endif -%}" target="_blank" title="Poster" class="slides btn btn-sm btn-outline-primary">
+            {% if speaking.poster %}
+                <a href="{%- if speaking.poster contains 'https://' or speaking.poster contains 'www.' -%}{{- speaking.poster -}}{%- else -%}{{- site.url -}}/assets/posters/{{- speaking.poster -}}.pdf{%- endif -%}" target="_blank" title="Poster" class="slides btn btn-sm btn-outline-primary">
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                     <i class="fa-solid fa-chalkboard fa-fw"></i>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
