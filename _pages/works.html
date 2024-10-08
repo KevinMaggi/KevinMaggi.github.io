@@ -7,13 +7,17 @@ classes: wide
 
 excerpt: "My research activity through the list of my works, publications, presentations, talks and theses"
 header:
-  overlay_color: "#5e616c"
+  overlay_color: "#666666"
   overlay_image: assets/images/headers/works.jpg
+  overlay_filter: 0.15
+  image:
+  image_description:
+  og_image:
   caption:
 
 author_profile: true
 
-toc: true  # Removed because not HTML-valid
+toc: true
 toc_label: My works
 toc_icon: book-open
 ---
@@ -361,31 +365,61 @@ toc_icon: book-open
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                 </div>
             {% endif %}
-            {% if speaking.video %}
-                <a href="{%- if speaking.video contains 'https://' or speaking.video contains 'www.' -%}{{- speaking.video -}}{%- else -%}{{- site.url -}}/assets/videos/{{- speaking.video -}}.pdf{%- endif -%}" target="_blank" title="Video" class="slides btn btn-sm btn-outline-primary">
+            {% if speaking.interactive-material %}
+                <a href="{%- if speaking.interactive-material contains 'https://' or speaking.interactive-material contains 'www.' -%}{{- speaking.interactive-material -}}{%- else -%}{{- site.url -}}/assets/interactives/{{- speaking.interactive-material -}}{%- endif -%}" target="_blank" title="Interactive material" class="interactive-material btn btn-sm btn-outline-primary">
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
-                    <i class="fa-solid fa-chalkboard fa-fw"></i>
+                    <i class="fa-solid fa-chalkboard-user fa-fw"></i>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                     <span class="visually-hidden">Link to slides</span>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                 </a>
             {% else %}
-                <div class="slides btn btn-sm placeholder" aria-hidden="true" title="No video">
+                <div class="interactive-material btn btn-sm placeholder" aria-hidden="true" title="No interactive material">
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                     <i class="fa-solid fa-fw"></i>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                 </div>
             {% endif %}
-            {% if speaking.poster %}
-                <a href="{%- if speaking.poster contains 'https://' or speaking.poster contains 'www.' -%}{{- speaking.poster -}}{%- else -%}{{- site.url -}}/assets/posters/{{- speaking.poster -}}.pdf{%- endif -%}" target="_blank" title="Poster" class="slides btn btn-sm btn-outline-primary">
+            {% if speaking.video %}
+                <a href="{%- if speaking.video contains 'https://' or speaking.video contains 'www.' -%}{{- speaking.video -}}{%- else -%}{{- site.url -}}/assets/videos/{{- speaking.video -}}.pdf{%- endif -%}" target="_blank" title="Video" class="video btn btn-sm btn-outline-primary">
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
-                    <i class="fa-solid fa-chalkboard fa-fw"></i>
+                    <i class="fa-solid fa-video fa-fw"></i>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
-                    <span class="visually-hidden">Link to slides</span>
+                    <span class="visually-hidden">Link to video</span>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                 </a>
             {% else %}
-                <div class="slides btn btn-sm placeholder" aria-hidden="true" title="No poster">
+                <div class="video btn btn-sm placeholder" aria-hidden="true" title="No video">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if speaking.playbill %}
+                <a href="{%- if speaking.playbill contains 'https://' or speaking.playbill contains 'www.' -%}{{- speaking.playbill -}}{%- else -%}{{- site.url -}}/assets/playbills/{{- speaking.playbill -}}.pdf{%- endif -%}" target="_blank" title="Playbill" class="playbill btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-file-image fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">Link to playbill</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="playbill btn btn-sm placeholder" aria-hidden="true" title="No playbill">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </div>
+            {% endif %}
+            {% if speaking.link %}
+                <a href="{{- speaking.link -}}" target="_blank" title="Link to the event" class="link btn btn-sm btn-outline-primary">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <i class="fa-solid fa-link fa-fw"></i>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    <span class="visually-hidden">Link to the event</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </a>
+            {% else %}
+                <div class="playbill btn btn-sm placeholder" aria-hidden="true" title="No link to the event">
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                     <i class="fa-solid fa-fw"></i>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}

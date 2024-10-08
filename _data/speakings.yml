@@ -9,11 +9,28 @@
 #     year: xxxx
 #     place: city, state
 #   slides: 
-#   poster: 
+#   interactive-material: 
+#   playbill: 
 #   video: 
+#   link: 
 #   publication: unique key of related publication
 
 
+- key: impactday2024
+  event_type: talk
+  venue_type: 
+  title: "Beyond Software Engineering Classrooms: An Ethnographic Study at 42 Florence"
+  year: 2024
+  venue:
+    name: "Impact Day: two years of 42 in Florence" 
+    year: 2024
+    place: Florence, Italy
+  slides: learner2024
+  interactive-material: impactDay2024
+  playbill: impactDay2024
+  video: 
+  link: https://www.eventbrite.it/e/biglietti-impact-day-due-anni-di-42-a-firenze-1015440649317
+  publication: # TODO
 - key: ease2024claim
   event_type: presentation
   venue_type: conference
@@ -25,8 +42,10 @@
     year: 2024
     place: Salerno, Italy
   slides: ease2024
-  poster: 
+  interactive-material:
+  playbill: 
   video: 
+  link: https://conf.researchr.org/track/ease-2024/ease-2024-nier?#event-overview
   publication: Maggi2024CLAIM
 - key: learner2024learning
   event_type: presentation
@@ -39,6 +58,9 @@
     year: 2024
     place: Salerno, Italy
   slides: learner2024
-  poster: 
+  interactive-material: 
+  playbill: 
   video: 
+  link: https://conf.researchr.org/home/ease-2024/learner-2024#event-overview
   publication: Pollini2024Learning
+  

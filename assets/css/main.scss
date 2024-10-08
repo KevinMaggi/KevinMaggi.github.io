@@ -53,4 +53,8 @@ $global-transition: none;  /* If disabled Lighthouse doesn't work */
 .page__hero--overlay {
     padding: 2em 0;
     margin-bottom: 1em;
+    
+    .page__title, .page__lead {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+    }
 }

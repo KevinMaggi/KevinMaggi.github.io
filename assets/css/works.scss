@@ -186,7 +186,8 @@ p .fa {
         
         .links {
                 margin: auto;
-                width: 235px;
+                min-width: 250px;
+                max-width: 400px;
                 display: flex;
                 justify-content: space-between;
 
