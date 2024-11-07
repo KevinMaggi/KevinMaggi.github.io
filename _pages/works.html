@@ -288,7 +288,8 @@ toc_icon: book-open
 <div id="statistics" class="callout callout-info">
     <p><strong>Some statistics:</strong></p>
     <ul id="statistics-list">
-        <li>currently, I have co-authored <b>{{- site.data.publications.size -}}</b> publications;</li>
+        {%- assign real_publications = site.data.publications | where_exp: "pub", "pub.venue_type == 'journal' or pub.pub_type != 'pre-proceeding'" -%}
+        <li>currently, I have co-authored <b>{{- real_publications.size -}}</b> publications;</li>
         <li>currently, my <a href="https://en.wikipedia.org/wiki/H-index" rel="noopener noreferrer nofollow external" title="Maximum value of h such that at least h of my papers have each been cited at least h times"><i>h</i>-index</a> is <b>1</b>;</li>
         <li>currently, my <a href="https://en.wikipedia.org/wiki/Erdős_number" rel="noopener noreferrer nofollow external" title="The collaborative distance between me and the mathematician Paul Erdős">Erdős number</a> is <b>5</b>.</li>
     </ul>
@@ -490,7 +491,7 @@ toc_icon: book-open
         <div class="details card-footer">
             <div class="links">
             {% if thesis.manuscript %}
-                <a href="{{- site.url -}}/assets/theses/{{- thesis.manuscript -}}.pdf" target="_blank" title="Author's Accepted Manuscript (post-print)" class="manuscript btn btn-sm btn-outline-primary">
+                <a href="{{- site.url -}}/assets/theses/{{- thesis.manuscript -}}.pdf" target="_blank" title="Manuscript" class="manuscript btn btn-sm btn-outline-primary">
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
                     <i class="fa-solid fa-file-lines fa-fw"></i>
                 {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
