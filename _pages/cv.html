@@ -1,6 +1,189 @@
 ---
-layout: single
-author_profile: true
+title: My Curriculum Vitae
 permalink: /cv/
-title: CV
+
+layout: single
+classes: wide
+
+excerpt: "My resumé: who I am, what I have studied, which are my interests, and what I am doing currently"
+header:
+  overlay_color: "#666666"
+  overlay_image: assets/images/headers/cv.jpg
+  overlay_filter: 0.15
+  image:
+  image_description:
+  og_image:
+  caption:
+
+author_profile: true
+
+toc: true
+toc_label: Curriculum Vitae
+toc_icon: file-lines
 ---
+
+Here, you will find an extensive outline of my educational background, professional experience, and personal interests, all of which have shaped who I am today, as well as contributed to the development of both my hard and soft skills.<br>
+For a more comprehensive and detailed overview of my background, please feel free to download my complete CV.
+
+<div id="cv">
+    <a href="###" title="Download my CV" class="btn btn-sm btn-primary"  role="button">
+        <i class="fa-solid fa-file-lines fa-fw"></i>
+        <span>My CV</span>
+    </a>
+</div>
+
+<h2 id="education"><i class="fa-solid fa-graduation-cap fa-fw" aria-hidden="true"></i>&nbsp;Education</h2>
+
+<ul id="titles-list" class="list-unstyled">
+{%- for title in site.data.titles -%}
+    <li id="{{- title.type -}}_{{- title.year -}}" class="title card">
+        <div class="info card-header">
+            <div class="year">
+                <span class="badge rounded-pill text-bg-secondary">
+                    {{- title.year -}}
+                </span>
+            </div>
+            <div class="type">
+                <span class="badge rounded-pill text-bg-primary">
+                    <span>
+                    {%- case title.type -%}
+                        {%- when "master" -%}
+                            2<sup>nd</sup> Cycle (Master's) Degree
+                        {%- when "bechelor" -%}
+                            1<sup>st</sup> Cycle (Bechelor's) Degree
+                        {%- when "high-school" -%}
+                            High-School Diploma
+                        {%- else -%}
+                            Other title
+                    {%- endcase -%}
+                    </span>
+                    {%- if title.eqf -%}
+                    &nbsp;|&nbsp;<small>EQF {{ title.eqf }}</small>
+                {%- endif -%}
+                </span>
+            </div>
+            <a href="#{{- title.type -}}_{{- title.year -}}" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="field">
+                <span class="label">Field of study</span>: <span class="course">{{ title.field -}}</span>
+            </div>
+            <div class="institution">
+                <span class="label">Institution</span>: {{ title.institution }} <span class="place">({{ title.city }}, {{ title.country }})</span>
+            </div>
+            {% if title.grade -%}
+            <div class="grade">
+                <span class="label">Final grade</span>:
+                <span class="badge rounded-pill text-bg-success">
+                    {{- title.grade -}}
+                    <small class="scale">
+                    {%- case title.type -%}
+                        {%- when "master" -%}
+                            &nbsp;/&nbsp;110
+                        {%- when "bechelor" -%}
+                            &nbsp;/&nbsp;110
+                        {%- when "high-school" -%}
+                            &nbsp;/&nbsp;100
+                        {%- else -%}
+                    {%- endcase -%}
+                    </small>
+                </span>
+            </div>
+            {%- endif %}
+        </div>
+        <div class="controls card-footer">
+            <button type="button" name="Details" aria-label="Show details" title="Toggle details" aria-controls="{{- title.type -}}_{{- title.year -}}-details" aria-expanded="false" class="details-btn btn">
+                <i class="fa-solid fa-circle-chevron-down fa-fw"></i>
+                <span class="visually-hidden">Toggle title details</span>
+            </button>
+            <div class="details" id="{{- title.type -}}_{{- title.year -}}-details">
+                <div class="title-description">
+                    <span class="label">Description</span>: {{ title.description }}
+                </div>
+                <div class="thesis-title">
+                    <span class="label">Thesis</span>: {{ title.thesis-title }}
+                {% if title.thesis-link %}
+                    <a href="{{- site.url -}}/works#{{- title.thesis-link -}}" title="Thesis work" class="work">
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                        <i class="fa-solid fa-link fa-fw"></i>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                        <span class="visually-hidden">Link to thesis work</span>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    </a>
+                {% endif %}
+                {% if title.thesis-doc %}
+                    <a href="{{- site.url -}}/assets/theses/{{- title.thesis-doc -}}.pdf" target="_blank" title="Thesis document" class="document">
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                        <i class="fa-solid fa-file-lines fa-fw"></i>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                        <span class="visually-hidden">Link to thesis slides</span>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    </a>
+                {% endif %}
+                {% if title.thesis-slides %}
+                    <a href="{{- site.url -}}/assets/slides/{{- title.thesis-doc -}}.pdf" target="_blank" title="Thesis slides" class="slides">
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                        <i class="fa-solid fa-chalkboard fa-fw"></i>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                        <span class="visually-hidden">Link to thesis slides</span>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                    </a>
+                {% endif %}
+                </div>
+                <div class="links">
+                    
+                </div>
+            </div>
+        </div>
+    </li>
+{%- endfor -%}
+</ul>
+
+<h2 id="job"><i class="fa-solid fa-id-badge fa-fw" aria-hidden="true"></i>&nbsp;Work Experience</h2>
+
+<!-- Scholarship researcher -->
+
+<h2 id="academia"><i class="fa-solid fa-building-columns fa-fw" aria-hidden="true"></i>&nbsp;Academic Career</h2>
+
+<!-- Scholarship researcher con link? incluso in altre categorie? -->
+
+<h2 id="job"><i class="fa-solid fa-person-walking fa-fw" aria-hidden="true"></i>&nbsp;Extracurricular Activities</h2>
+
+<h3 id="sport"><i class="fa-solid fa-basketball fa-fw" aria-hidden="true"></i>&nbsp;Sport</h3>
+
+<!-- Refereeing -->
+
+<h3 id="competitions"><i class="fa-solid fa-ranking-star fa-fw" aria-hidden="true"></i>&nbsp;Competitions</h3>
+
+<!-- National Math Olympiad -->
+
+<h2 id="language"><i class="fa-solid fa-globe fa-fw" aria-hidden="true"></i>&nbsp;Language Skills</h2>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('#titles-list button')
+      .forEach(function (button) {
+          button.addEventListener("click", function() {
+              var key = button.closest(".title").id;
+
+              var open =  document.querySelector("#"+key+" .details").classList.contains('show');
+
+              if (open) {
+                  document.querySelector("#"+key+" .details").classList.remove('show');
+                  button.setAttribute("aria-expanded", false);
+                  button.classList.remove('expanded');
+                  button.setAttribute("aria-label", "Show details");
+              }
+              else {
+                  document.querySelector("#"+key+" .details").classList.add('show');
+                  button.setAttribute("aria-expanded", true);
+                  button.classList.add('expanded');
+                  button.setAttribute("aria-label", "Hide details")
+              }
+          });
+    });
+});
+</script>

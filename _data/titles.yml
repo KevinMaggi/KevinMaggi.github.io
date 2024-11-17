@@ -1,0 +1,54 @@
+# - year:
+#   type: 
+#   eqf: 
+#   field: 
+#   institution: 
+#   city: 
+#   country: 
+#   description: 
+#   grade: 
+#   thesis-title: 
+#   thesis-link:
+#   thesis-doc:
+#   thesis-slides:
+
+- year: 2023
+  type: master
+  eqf: 7
+  field: Computer Engineering
+  institution: Università degli Studi di Firenze
+  city: Firenze
+  country: Italy
+  description: |-
+    My statutory curriculum has been designed to focus on Software Intensive Systems, delving into essential concepts such as software models and architectures that address the state-of-art development of complex information systems and management practices. The curriculum also covered the nuances of real-time and embedded systems, where dependability attributes, qualitative and formal correctness verification, and quantitative performance evaluation are critical.
+  grade: 110 cum Laude
+  thesis-title: |-
+    Analysis of the Evolution of Code Technical Debt in Microservices Architectures
+  thesis-link: master_2023
+- year: 2020
+  type: bechelor
+  eqf: 6
+  field: Computer Engineering
+  institution: Università degli Studi di Firenze
+  city: Firenze
+  country: Italy
+  description: |-
+    The course provided a solid theoretical and practical foundation in Computer Engineering, focusing on mathematical and systems-oriented methodologies, rooted in abstraction, formal methods, algorithms, modeling approaches, and problem-solving techniques. The curriculum covered ground concepts for the development of information processing applications, including multimedia software, information systems, web applications, embedded software components, and scientific computing.
+  grade: 107
+  thesis-title: |-
+    Design and development of a software component for the derivation of Petri preemptive models from specific timeline
+  thesis-link: bechelor_2020
+- year: 2016
+  type: high-school
+  eqf: 4
+  field: Scientific Lyceum
+  institution: Liceo Scientifico "N. Copernico"
+  city: Prato
+  country: Italy
+  description: |-
+    The program provided a comprehensive education with a focus on developing strong analytical and problem-solving skills by emphasizing scientific and mathematical subjects while incorporating humanities to foster critical thinking skills.
+  grade: 95
+  thesis-title: |-
+    The atom: from philosophical theories to scientific evidences
+  thesis-doc: diploma2016
+  thesis-slides: diploma2016

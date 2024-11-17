@@ -1,7 +1,7 @@
 main:
   - title: "CV"
     url: /cv/
-    description: "Who I am, what I have studied and what I am doing currently"
+    description: "My education and my current and past positions"
   - title: "Works"
     url: /works/
     description: "List of my works, publications and thesis"

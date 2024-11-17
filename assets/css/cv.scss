@@ -1,0 +1,118 @@
+#cv {
+    margin: auto;
+    width: fit-content;
+    margin-top: 10px;
+
+    a:visited {
+        color: white;
+    }
+}
+
+h3, .h3 {
+    i.fa-fw {
+        margin: 0 3.5px;
+    }
+}
+
+#titles-list {
+    
+    .title {
+        
+        .info {
+            
+            .year, .type {
+                display: inline-block;
+                
+                small {
+                    font-weight: lighter;
+                }
+            }
+            
+            .card-link {
+                position: relative;
+                float: right;
+                opacity: 0;
+            }
+        }
+        
+        hr {
+            margin: 5px 0;
+        }
+        
+        .label {
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        .place {
+            font-style: italic;
+        }
+        
+        .field {
+            
+            .course {
+                font-weight: bold;
+                font-style: italic;
+            }
+        }
+        
+        .institution {
+            
+        }
+        
+        .grade {
+            
+            .badge {
+                font-size: inherit;
+            }
+        }
+        
+        .details-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 5px 7.5px;
+            
+            &.expanded {
+                transform: rotate(180deg);
+            }
+        }
+        
+        .details {
+            display: none;
+            
+            .title-description {
+                font-size: smaller;
+            }
+
+            .thesis-title {
+                font-size: smaller;
+                font-style: italic;
+            }
+                
+            &.show {
+                display: block;
+            }
+        }
+        
+        .links {
+            margin: auto;
+            width: 235px;
+            display: flex;
+            justify-content: space-between;
+            
+            :only-child {
+                margin: 0 auto;
+            }
+            
+            .slides, .document, .work {
+                
+            }
+        }
+        
+        &:hover {
+            .card-link {
+                opacity: 1;
+            }
+        }
+    }
+}
