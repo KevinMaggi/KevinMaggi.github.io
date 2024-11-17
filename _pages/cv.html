@@ -154,7 +154,84 @@ For a more comprehensive and detailed overview of my background, please feel fre
 
 <h3 id="sport"><i class="fa-solid fa-basketball fa-fw" aria-hidden="true"></i>&nbsp;Sport</h3>
 
-<!-- Refereeing -->
+<ul id="sport-activities-list" class="list-unstyled">
+{%- for activity in site.data.sport -%}
+    <li id="{{- activity.denomination | replace: ' ', '_' -}}" class="activity card">
+        <div class="info card-header">
+            <div class="year">
+                <span class="badge rounded-pill text-bg-secondary">
+                    {{- activity.from }} - {% if activity.to -%} {{- activity.to -}} {%- else -%} current {%- endif -%}
+                </span>
+            </div>
+            <div class="denomination">
+                <span class="badge rounded-pill text-bg-primary">
+                    <span>{{- activity.denomination -}}</span>
+                </span>
+            </div>
+            <a href="#{{- activity.denomination | replace: ' ', '_' -}}" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <ul class="roles">
+            {%- for role in activity.roles -%}
+                <li>
+                    <div class="year">
+                        <span class="badge rounded-pill text-bg-secondary">
+                            {{- role.from }} - {% if role.to -%} {{- role.to -}} {%- else -%} current {%- endif -%}
+                        </span>
+                    </div>
+                    <div class="role">
+                        <span class="name">{{- role.name -}}</span> at <span class="organization">{{- role.at -}}</span>
+                        
+                    {%- if role.qualifications -%}
+                        <div class="qualifications">
+                        {%- for qualification in role.qualifications -%}
+                            <div class="qualification">
+                                <span class="badge rounded-pill text-bg-info">
+                                    {{- qualification -}}
+                                </span>
+                            </div>
+                        {% endfor -%}
+                        </div>
+                    {%- endif -%}
+                    </div>
+                </li>
+                {%- unless forloop.last -%} <hr> {% endunless -%}
+            {%- endfor -%}
+            </ul>
+        </div>
+        <div class="controls card-footer">
+            <button type="button" name="Details" aria-label="Show details" title="Toggle details" aria-controls="{{- activity.denomination -}}-details" aria-expanded="false" class="details-btn btn">
+                <i class="fa-solid fa-circle-chevron-down fa-fw"></i>
+                <span class="visually-hidden">Toggle activity details</span>
+            </button>
+            <div class="details" id="{{- activity.denomination -}}-details">
+                <div class="activity-description">
+                    <span class="label">Description</span>: {{ activity.description }}
+                </div>
+                <div class="activity-skills">
+                    <span class="label">Acquired skills</span>: 
+                    <ul class="skills">
+                    {%- for skill in activity.skills -%}
+                        <li class="skill">
+                            <span class="badge rounded-pill text-bg-success">
+                                {{- skill.name -}}
+                            </span>
+                            {{ skill.description -}}
+                        </li>
+                    {%- endfor -%}
+                    </ul>
+                </div>
+                <div class="links">
+                    
+                </div>
+            </div>
+        </div>
+    </li>
+{%- endfor -%}
+</ul>
 
 <h3 id="competitions"><i class="fa-solid fa-ranking-star fa-fw" aria-hidden="true"></i>&nbsp;Competitions</h3>
 
@@ -164,10 +241,10 @@ For a more comprehensive and detailed overview of my background, please feel fre
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('#titles-list button')
+    document.querySelectorAll('#titles-list button, #sport-activities-list button')
       .forEach(function (button) {
           button.addEventListener("click", function() {
-              var key = button.closest(".title").id;
+              var key = button.closest("li").id;
 
               var open =  document.querySelector("#"+key+" .details").classList.contains('show');
 
