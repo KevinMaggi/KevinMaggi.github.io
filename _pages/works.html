@@ -60,6 +60,10 @@ toc_icon: book-open
                 <span>extended by</span><i class="fa fa-solid fa-arrow-up-right-from-square"></i>
             </a>
         {%- endif -%}
+            <a href="#{{- publication.key -}}" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
         </div>
         <div class="card-body">
             <div class="authors">
@@ -325,6 +329,10 @@ toc_icon: book-open
                 <span>relating to</span><i class="fa fa-solid fa-arrow-up-right-from-square"></i>
             </a>
         {%- endif -%}
+            <a href="#{{- speaking.key -}}" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
         </div>
         <div class="card-body">
             <div class="title">
@@ -457,6 +465,10 @@ toc_icon: book-open
                 &nbsp;|&nbsp;<small>EQF {{ thesis.eqf }}</small>
             {%- endif -%}
             </span>
+            <a href="#{{- thesis.type -}}_{{- thesis.year -}}" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
         </div>
         <div class="card-body">
             <div class="institution">

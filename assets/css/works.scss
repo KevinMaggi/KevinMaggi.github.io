@@ -30,6 +30,12 @@ p .fa {
                     margin-left: 5px;
                 }
             }
+            
+            .card-link {
+                position: relative;
+                float: right;
+                opacity: 0;
+            }
         }
 
         .authors {
@@ -126,6 +132,12 @@ p .fa {
                 }
             }
         }
+        
+        &:hover {
+            .card-link {
+                opacity: 1;
+            }
+        }
     }
 }
 
@@ -169,6 +181,13 @@ p .fa {
                     margin-left: 5px;
                 }
             }
+            
+            
+            .card-link {
+                position: relative;
+                float: right;
+                opacity: 0;
+            }
         }
 
         .title {
@@ -185,20 +204,26 @@ p .fa {
         }
         
         .links {
-                margin: auto;
-                min-width: 250px;
-                max-width: 400px;
-                display: flex;
-                justify-content: space-between;
+            margin: auto;
+            min-width: 250px;
+            max-width: 400px;
+            display: flex;
+            justify-content: space-between;
 
-                .manuscript, .repository, .slides {
+            .manuscript, .repository, .slides {
 
-                }
-
-                .placeholder {
-                    cursor: auto;
-                }
             }
+
+            .placeholder {
+                cursor: auto;
+            }
+        }
+        
+        &:hover {
+            .card-link {
+                opacity: 1;
+            }
+        }
     }
 }
 
@@ -224,6 +249,12 @@ p .fa {
                 small {
                     font-weight: lighter;
                 }
+            }
+            
+            .card-link {
+                position: relative;
+                float: right;
+                opacity: 0;
             }
         }
         
@@ -267,6 +298,12 @@ p .fa {
                 .placeholder {
                     cursor: auto;
                 }
+            }
+        }
+        
+        &:hover {
+            .card-link {
+                opacity: 1;
             }
         }
     }
