@@ -1,10 +1,6 @@
 # - denomination: 
 #   from: 
 #   to:  (null for "current")
-#   description: |-
-#   skills:
-#     - name: 
-#       description: 
 #   roles:
 #     - name: 
 #       at: 
@@ -12,26 +8,17 @@
 #       to:  (null for "current")
 #       qualifications:
 #         - 
+#       awards:
+#         -
+#   description: |-
+#   skills:
+#     - name: 
+#       description: 
 
 
 - denomination: Basketball Refereeing
   from: 2014
   to: 
-  description: |-
-    Ten years of experience officiating over 600 games across various levels, including youth and senior championships: first as a referee, up to the sixth-tier league in Italy; now as a table official. The referee's responsibilities include enforcing game rules and managing on-court situations sensibly; the table official's duties concern managing the game and shot clocks and maintaining the score sheet and stats. Effective collaboration from both sides is essential to ensure fair competition and compliance with game procedures.
-  skills:
-    - name: Decision-Making Under Pressure
-      description: Developed the ability to make accurate and high-stakes decisions in fast-paced and high-pressure environments.
-    - name: Rule Interpretation and Application
-      description: Honed a precise understanding of multi-faceted regulations, ensuring consistent, sensible, and fair application of rules by interpreting the unique dynamics of each situation.
-    - name: Attention to Detail
-      description: Mastered the ability to monitor multiple aspects simultaneously, ensuring adherence to regulations and procedures.
-    - name: Conflict Resolution and Communication
-      description: Enhanced communication skills by effectively conveying decisions, collaborating with players, coaches, and fellow officials, and managing disputes while maintaining authority and fostering a respectful atmosphere.
-    - name: Teamwork and Collaboration
-      description: Worked closely with officiating teams to achieve the common goal of ensuring consistency and fairness in games.
-    - name: Leadership and Team Alignment
-      description: Demonstrated leadership and adaptability by managing competitive and emotional situations with professionalism and composure.
   roles:
     - name: Table Official
       at: Italian Basketball Federation (FIP)
@@ -47,3 +34,18 @@
       qualifications:
         - Regional Referee
         - Regional 3x3 Referee
+  description: |-
+    Ten years of experience officiating over 600 games across various levels, including youth and senior championships: first as a referee, up to the sixth-tier league in Italy; now as a table official. The referee's responsibilities include enforcing game rules and managing on-court situations sensibly; the table official's duties concern managing the game and shot clocks and maintaining the score sheet and stats. Effective collaboration from both sides is essential to ensure fair competition and compliance with game procedures.
+  skills:
+    - name: Decision-Making Under Pressure
+      description: Developed the ability to make accurate and high-stakes decisions in fast-paced and high-pressure environments.
+    - name: Rule Interpretation and Application
+      description: Honed a precise understanding of multi-faceted regulations, ensuring consistent, sensible, and fair application of rules by interpreting the unique dynamics of each situation.
+    - name: Attention to Detail
+      description: Mastered the ability to monitor multiple aspects simultaneously, ensuring adherence to regulations and procedures.
+    - name: Conflict Resolution and Communication
+      description: Enhanced communication skills by effectively conveying decisions, collaborating with players, coaches, and fellow officials, and managing disputes while maintaining authority and fostering a respectful atmosphere.
+    - name: Teamwork and Collaboration
+      description: Worked closely with officiating teams to achieve the common goal of ensuring consistency and fairness in games.
+    - name: Leadership and Team Alignment
+      description: Demonstrated leadership and adaptability by managing competitive and emotional situations with professionalism and composure.

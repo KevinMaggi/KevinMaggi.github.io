@@ -1,0 +1,50 @@
+# - denomination: 
+#   from: 
+#   to:  (null for "current")
+#   events:
+#     - title: 
+#       by: 
+#       from: (null for no dates)
+#       to:  (null for "current")
+#       levels:
+#         - level:
+#           speciality:
+#       titles:
+#         - title: 
+#           speciality: 
+#   description: |-
+#   skills:
+#     - name: 
+#       description: 
+
+
+- denomination: Mathematical Competitions
+  from: 2014
+  to: 2016
+  events:
+    - title: Italian Mathematical Olympiad
+      by: Italian Mathematical Union (UMI)
+      levels:
+        - level: Institute
+          speciality: individual
+        - level: District
+          speciality: individual
+        - level: Territorial
+          speciality: team
+        - level: National
+          speciality: team
+  description: |-
+    Active participation in the Italian Mathematical Olympiad during high school years, competing in individual and school-team events, reaching twice the national team final. Team competitions involve tackling complex mathematical problems collaboratively under strict time constraints, requiring strategic division of tasks and effective communication to develop the most advantageous team strategy. These contests combine creativity, logical reasoning, and teamwork, offering a challenging and engaging problem-solving environment.
+  skills:
+    - name: Problem-Solving
+      description: Developed advanced analytical and creative thinking skills to address complex and unconventional problems.
+    - name: Critical Thinking
+      description: Strengthened the ability to evaluate various approaches to a problem and identify the most efficient and effective solution.
+    - name: Team Dynamics Management
+      description: Acquired experience managing different team dynamics, ensuring mutual support and coordinated efforts toward common goals.
+    - name: Strategic Collaboration
+      description: Excelled at efficiently dividing tasks, leveraging individual strengths and diverse perspectives to produce optimal solutions for the team.
+    - name: Resilience and Adaptability
+      description: Built mental adaptability by dynamically adjusting strategies in response to evolving challenges.
+    - name: Time Management
+      description: Enhanced prioritization and time allocation, balancing individual tasks with collaborative objectives to maximize team performance.

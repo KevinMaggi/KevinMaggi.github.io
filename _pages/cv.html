@@ -57,7 +57,7 @@ For a more comprehensive and detailed overview of my background, please feel fre
                             Other title
                     {%- endcase -%}
                     </span>
-                    {%- if title.eqf -%}
+                {%- if title.eqf -%}
                     &nbsp;|&nbsp;<small>EQF {{ title.eqf }}</small>
                 {%- endif -%}
                 </span>
@@ -187,10 +187,125 @@ For a more comprehensive and detailed overview of my background, please feel fre
                         
                     {%- if role.qualifications -%}
                         <div class="qualifications">
-                        {%- for qualification in role.qualifications -%}
+                            <span class="label">Qualifications</span>:
+                        {% for qualification in role.qualifications -%}
                             <div class="qualification">
                                 <span class="badge rounded-pill text-bg-info">
                                     {{- qualification -}}
+                                </span>
+                            </div>
+                        {% endfor -%}
+                        </div>
+                    {%- endif -%}
+                    {%- if role.awards -%}
+                        <div class="awards">
+                            <span class="label">Awards</span>:
+                        {% for award in role.awards -%}
+                            <div class="award">
+                                <span class="badge rounded-pill text-bg-success">
+                                    {{- award -}}
+                                </span>
+                            </div>
+                        {%- endfor -%}
+                        </div>
+                    {%- endif -%}
+                    </div>
+                </li>
+                {%- unless forloop.last -%} <hr> {% endunless -%}
+            {%- endfor -%}
+            </ul>
+        </div>
+        <div class="controls card-footer">
+            <button type="button" name="Details" aria-label="Show details" title="Toggle details" aria-controls="{{- activity.denomination -}}-details" aria-expanded="false" class="details-btn btn">
+                <i class="fa-solid fa-circle-chevron-down fa-fw"></i>
+                <span class="visually-hidden">Toggle activity details</span>
+            </button>
+            <div class="details" id="{{- activity.denomination -}}-details">
+                <div class="activity-description">
+                    <span class="label">Description</span>: {{ activity.description }}
+                </div>
+                <div class="activity-skills">
+                    <span class="label">Acquired skills</span>: 
+                    <ul class="skills">
+                    {%- for skill in activity.skills -%}
+                        <li class="skill">
+                            <span class="badge rounded-pill text-bg-success">
+                                {{- skill.name -}}
+                            </span>
+                            {{ skill.description -}}
+                        </li>
+                    {%- endfor -%}
+                    </ul>
+                </div>
+                <div class="links">
+                    
+                </div>
+            </div>
+        </div>
+    </li>
+{%- endfor -%}
+</ul>
+
+<h3 id="competitions"><i class="fa-solid fa-ranking-star fa-fw" aria-hidden="true"></i>&nbsp;Competitions</h3>
+
+<ul id="competition-activities-list" class="list-unstyled">
+{%- for activity in site.data.competitions -%}
+    <li id="{{- activity.denomination | replace: ' ', '_' -}}" class="activity card">
+        <div class="info card-header">
+            <div class="year">
+                <span class="badge rounded-pill text-bg-secondary">
+                    {{- activity.from }} - {% if activity.to -%} {{- activity.to -}} {%- else -%} current {%- endif -%}
+                </span>
+            </div>
+            <div class="denomination">
+                <span class="badge rounded-pill text-bg-primary">
+                    <span>{{- activity.denomination -}}</span>
+                </span>
+            </div>
+            <a href="#{{- activity.denomination | replace: ' ', '_' -}}" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <ul class="events">
+            {%- for event in activity.events -%}
+                <li>
+                {%- if event.to -%}
+                    <div class="year">
+                        <span class="badge rounded-pill text-bg-secondary">
+                            {{- event.from }} - {% if event.to -%} {{- event.to -}} {%- else -%} current {%- endif -%}
+                        </span>
+                    </div>
+                {%- endif -%}
+                    <div class="event">
+                        <span class="title">{{- event.title -}}</span> by <span class="organizer">{{- event.by -}}</span>
+                        
+                    {%- if event.levels -%}
+                        <div class="levels">
+                            <span class="label">Levels</span>:
+                        {% for level in event.levels -%}
+                            <div class="level">
+                                <span class="badge rounded-pill text-bg-info">
+                                    {{- level.level -}}
+                                {%- if level.speciality -%}
+                                    &nbsp;|&nbsp;<small>{{- level.speciality -}}</small>
+                                {%- endif -%}
+                                </span>
+                            </div>
+                        {% endfor -%}
+                        </div>
+                    {%- endif -%}
+                    {%- if event.titles -%}
+                        <div class="titles">
+                            <span class="label">Titles</span>:
+                        {% for title in event.titles -%}
+                            <div class="title">
+                                <span class="badge rounded-pill text-bg-success">
+                                    {{- title.title -}}
+                                {%- if title.speciality -%}
+                                    &nbsp;|&nbsp;<small>{{- title.speciality -}}</small>
+                                {%- endif -%}
                                 </span>
                             </div>
                         {% endfor -%}
@@ -233,15 +348,11 @@ For a more comprehensive and detailed overview of my background, please feel fre
 {%- endfor -%}
 </ul>
 
-<h3 id="competitions"><i class="fa-solid fa-ranking-star fa-fw" aria-hidden="true"></i>&nbsp;Competitions</h3>
-
-<!-- National Math Olympiad -->
-
 <h2 id="language"><i class="fa-solid fa-globe fa-fw" aria-hidden="true"></i>&nbsp;Language Skills</h2>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('#titles-list button, #sport-activities-list button')
+    document.querySelectorAll('#titles-list button, #sport-activities-list button, #competition-activities-list button')
       .forEach(function (button) {
           button.addEventListener("click", function() {
               var key = button.closest("li").id;

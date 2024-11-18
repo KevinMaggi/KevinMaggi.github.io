@@ -117,7 +117,7 @@ h3, .h3 {
     }
 }
 
-#sport-activities-list {
+#sport-activities-list, #competition-activities-list {
     
     .activity {
         
@@ -138,27 +138,36 @@ h3, .h3 {
             margin: 5px 0;
         }
         
-        .roles {
+        .roles, .events {
             list-style: none;
             padding: 0;
             margin: 0;
             
-            .role {
+            .role, .event {
                 padding-left: 1.5em;
                 
-                .name {
+                .label {
+                    font-style: normal;
+                    font-size: smaller;
+                }
+                
+                .name, .title {
                     font-weight: bold;
                     font-style: normal;
                 }
                 
-                .organization {
+                .organization, .organizer {
                     font-style: italic;
                 }
                 
-                .qualifications {
+                .qualifications, .awards, .levels, .titles {
                     
-                    .qualification {
+                    .qualification, .award, .level, .title {
                         display: inline-block;
+                        
+                        small {
+                            font-weight: lighter;
+                        }
                     }
                 }
             }
