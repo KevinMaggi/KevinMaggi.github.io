@@ -234,7 +234,7 @@ For a more comprehensive and detailed overview of my background, please feel fre
 {%- endfor -%}
 </ul>
 
-<p>For additional information about my research activity and publications, please visit the <a href="/works">Work page</a>. There, you will find a comprehensive overview of my projects and contributions to the field.</p>
+<p>For additional information about my research activity and publications, please visit the <a href="/works"><i class="fa fa-book-open fa-fw"></i>Work page</a>. There, you will find a comprehensive overview of my projects and contributions to the field.</p>
 
 <h2 id="job"><i class="fa-solid fa-id-badge fa-fw" aria-hidden="true"></i>&nbsp;Work Experience</h2>
 
@@ -242,14 +242,14 @@ For a more comprehensive and detailed overview of my background, please feel fre
 {%- for job in site.data.jobs -%}
 {%- if job.link -%}
 {%- assign position = site.data.[job.link.list][job.link.index] -%}
-    <li id="{{- job.link.id -}}_link" class="title card">
+    <li id="{{- job.link.id -}}_mirror" class="title card">
         <div class="info card-header">
             <div class="year">
                 <span class="badge rounded-pill text-bg-secondary">
                     {{- position.from }} - {% if position.to -%} {{- position.to -}} {%- else -%} current {%- endif -%}
                 </span>
             </div>
-            <a href="#{{- job.link.id -}}_link" title="Permalink" class="card-link">
+            <a href="#{{- job.link.id -}}_mirror" title="Permalink" class="card-link">
                 <span class="fa-solid fa-link fa-fw"></span>
                 <span class="visually-hidden">Permalink</span>
             </a>
