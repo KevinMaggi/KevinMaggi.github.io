@@ -4,6 +4,9 @@
 #   roles:
 #     - name: 
 #       at: 
+#         name:
+#         acronym:
+#         url:
 #       from: 
 #       to:  (null for "current")
 #       qualifications:
@@ -21,14 +24,20 @@
   to: 
   roles:
     - name: Table Official
-      at: Italian Basketball Federation (FIP)
+      at: 
+        name: Italian Basketball Federation
+        acronym: FIP
+        url: https://www.fip.it
       from: 2023
       to: 
       qualifications:
         - Regional Table Official
         - Regional Statistician Table Official
     - name: Referee
-      at: Italian Basketball Federation (FIP)
+      at: 
+        name: Italian Basketball Federation
+        acronym: FIP
+        url: https://www.fip.it
       from: 2014
       to: 2023
       qualifications:

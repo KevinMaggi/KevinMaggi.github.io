@@ -72,7 +72,18 @@ For a more comprehensive and detailed overview of my background, please feel fre
                 <span class="label">Field of study</span>: <span class="course">{{ title.field -}}</span>
             </div>
             <div class="institution">
-                <span class="label">Institution</span>: {{ title.institution }} <span class="place">({{ title.city }}, {{ title.country }})</span>
+                <span class="label">Institution</span>:
+            {%- if title.institution.url -%}
+                &#32;<a href="{{- title.institution.url -}}" target="_blank">
+            {%- endif -%}
+                    {{ title.institution.name }}
+                {%- if title.institution.acronym -%}
+                    &#32;({{- title.institution.acronym -}})
+                {%- endif -%}
+            {%- if title.institution.url -%}
+                </a>
+            {%- endif -%}
+                &#32;<span class="place">({{ title.institution.city }}, {{ title.institution.country }})</span>
             </div>
             {% if title.grade -%}
             <div class="grade">
@@ -142,15 +153,136 @@ For a more comprehensive and detailed overview of my background, please feel fre
 {%- endfor -%}
 </ul>
 
-<h2 id="job"><i class="fa-solid fa-id-badge fa-fw" aria-hidden="true"></i>&nbsp;Work Experience</h2>
-
-<!-- Scholarship researcher -->
 
 <h2 id="academia"><i class="fa-solid fa-building-columns fa-fw" aria-hidden="true"></i>&nbsp;Academic Career</h2>
 
-<!-- Scholarship researcher con link? incluso in altre categorie? -->
+<ul id="academic-positions-list" class="list-unstyled">
+{%- for position in site.data.academia -%}
+    <li id="{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}" class="title card">
+        <div class="info card-header">
+            <div class="year">
+                <span class="badge rounded-pill text-bg-secondary">
+                    {{- position.from }} - {% if position.to -%} {{- position.to -}} {%- else -%} current {%- endif -%}
+                </span>
+            </div>
+            <a href="#{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="job">
+                <span class="position">{{ position.position -}}</span> at
+            {%- if position.institution.url -%}
+                &#32;<a href="{{- position.institution.url -}}" target="_blank">
+            {%- endif -%}
+                    <span class="organization">{{ position.institution.name }}
+                {%- if position.institution.acronym -%}
+                    &#32;({{- position.institution.acronym -}})</span>
+                {%- endif -%}
+            {%- if position.institution.url -%}
+                </a>
+            {%- endif -%}
+                &#32;<span class="place">({{ position.institution.city }}, {{ position.institution.country }})</span>
+            </div>
+        {%- if position.department -%}
+            <div class="department">
+                <span class="label">Department</span>:
+            {%- if position.department.url -%}
+                &#32;<a href="{{- position.department.url -}}" target="_blank">
+            {%- endif -%}
+                    {{ position.department.name }}
+                {%- if position.department.acronym -%}
+                    &#32;({{- position.department.acronym -}})
+                {%- endif -%}
+            {%- if position.department.url -%}
+                </a>
+            {%- endif -%}
+            </div>
+        {%- endif -%}
+        {%- if position.laboratory -%}
+            <div class="laboratory">
+                <span class="label">Laboratory</span>:
+            {%- if position.laboratory.url -%}
+                &#32;<a href="{{- position.laboratory.url -}}" target="_blank">
+            {%- endif -%}
+                    {{ position.laboratory.name }}
+                {%- if position.laboratory.acronym -%}
+                    &#32;({{- position.laboratory.acronym -}})
+                {%- endif -%}
+            {%- if position.laboratory.url -%}
+                </a>
+            {%- endif -%}
+            </div>
+        {%- endif -%}
+        </div>
+        <div class="controls card-footer">
+            <button type="button" name="Details" aria-label="Show details" title="Toggle details" aria-controls="{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}-details" aria-expanded="false" class="details-btn btn">
+                <i class="fa-solid fa-circle-chevron-down fa-fw"></i>
+                <span class="visually-hidden">Toggle position details</span>
+            </button>
+            <div class="details" id="{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}-details">
+                <div class="title-description">
+                    <span class="label">Description</span>: {{ position.description }}
+                </div>
+                <div class="links">
+                    
+                </div>
+            </div>
+        </div>
+    </li>
+{%- endfor -%}
+</ul>
 
-<h2 id="job"><i class="fa-solid fa-person-walking fa-fw" aria-hidden="true"></i>&nbsp;Extracurricular Activities</h2>
+<p>For additional information about my research activity and publications, please visit the <a href="/works">Work page</a>. There, you will find a comprehensive overview of my projects and contributions to the field.</p>
+
+<h2 id="job"><i class="fa-solid fa-id-badge fa-fw" aria-hidden="true"></i>&nbsp;Work Experience</h2>
+
+<ul id="jobs-list" class="list-unstyled">
+{%- for job in site.data.jobs -%}
+{%- if job.link -%}
+{%- assign position = site.data.[job.link.list][job.link.index] -%}
+    <li id="{{- job.link.id -}}_link" class="title card">
+        <div class="info card-header">
+            <div class="year">
+                <span class="badge rounded-pill text-bg-secondary">
+                    {{- position.from }} - {% if position.to -%} {{- position.to -}} {%- else -%} current {%- endif -%}
+                </span>
+            </div>
+            <a href="#{{- job.link.id -}}_link" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="job">
+                <span class="position">{{ position.position -}}</span> at
+            {%- if position.institution.url -%}
+                &#32;<a href="{{- position.institution.url -}}" target="_blank">
+            {%- endif -%}
+                    <span class="organization">{{ position.institution.name }}
+                {%- if position.institution.acronym -%}
+                    &#32;({{- position.institution.acronym -}})</span>
+                {%- endif -%}
+            {%- if position.institution.url -%}
+                </a>
+            {%- endif -%}
+                &#32;<span class="place">({{ position.institution.city }}, {{ position.institution.country }})</span>
+                <a href="#{{- job.link.id -}}" title="Go to this experience">
+                    <i class="fa-solid fa-circle-arrow-right fa-fw"></i>
+                    <span class="visually-hidden">Go to this experience</span>
+                </a>
+            </div>
+        </div>
+    </li>
+{%- else -%}
+    
+{%- endif -%}
+{%- endfor -%}
+</ul>
+
+
+<h2 id="extracurricular-activities"><i class="fa-solid fa-person-walking fa-fw" aria-hidden="true"></i>&nbsp;Extracurricular Activities</h2>
 
 <h3 id="sport"><i class="fa-solid fa-basketball fa-fw" aria-hidden="true"></i>&nbsp;Sport</h3>
 
@@ -183,7 +315,17 @@ For a more comprehensive and detailed overview of my background, please feel fre
                         </span>
                     </div>
                     <div class="role">
-                        <span class="name">{{- role.name -}}</span> at <span class="organization">{{- role.at -}}</span>
+                        <span class="name">{{- role.name -}}</span> at 
+                    {%- if role.at.url -%}
+                        &#32;<a href="{{- role.at.url -}}" target="_blank" class="organization">
+                    {%- endif -%}
+                            {{ role.at.name }}
+                        {%- if role.at.acronym -%}
+                            &#32;({{- role.at.acronym -}})
+                        {%- endif -%}
+                    {%- if role.at.url -%}
+                        </a>
+                    {%- endif -%}
                         
                     {%- if role.qualifications -%}
                         <div class="qualifications">
@@ -246,6 +388,7 @@ For a more comprehensive and detailed overview of my background, please feel fre
 {%- endfor -%}
 </ul>
 
+
 <h3 id="competitions"><i class="fa-solid fa-ranking-star fa-fw" aria-hidden="true"></i>&nbsp;Competitions</h3>
 
 <ul id="competition-activities-list" class="list-unstyled">
@@ -279,7 +422,17 @@ For a more comprehensive and detailed overview of my background, please feel fre
                     </div>
                 {%- endif -%}
                     <div class="event">
-                        <span class="title">{{- event.title -}}</span> by <span class="organizer">{{- event.by -}}</span>
+                        <span class="title">{{- event.title -}}</span> by
+                    {%- if event.by.url -%}
+                        &#32;<a href="{{- event.by.url -}}" target="_blank">
+                    {%- endif -%}
+                            <span class="organization">{{ event.by.name }}
+                        {%- if event.by.acronym -%}
+                            &#32;({{- event.by.acronym -}})</span>
+                        {%- endif -%}
+                    {%- if event.by.url -%}
+                        </a>
+                    {%- endif -%}
                         
                     {%- if event.levels -%}
                         <div class="levels">
@@ -348,11 +501,16 @@ For a more comprehensive and detailed overview of my background, please feel fre
 {%- endfor -%}
 </ul>
 
-<h2 id="language"><i class="fa-solid fa-globe fa-fw" aria-hidden="true"></i>&nbsp;Language Skills</h2>
+
+<h2 id="skills"><i class="fa-solid fa-fire fa-fw" aria-hidden="true"></i>&nbsp;Skills</h2>
+
+<h3 id="language-skills"><i class="fa-solid fa-globe fa-fw" aria-hidden="true"></i>&nbsp;Language Skills</h3>
+
+<h3 id="soft-skills"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i>&nbsp;Soft Skills</h3>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('#titles-list button, #sport-activities-list button, #competition-activities-list button')
+    document.querySelectorAll('#titles-list button, #sport-activities-list button, #competition-activities-list button, #academic-positions-list button, #job-list button')
       .forEach(function (button) {
           button.addEventListener("click", function() {
               var key = button.closest("li").id;

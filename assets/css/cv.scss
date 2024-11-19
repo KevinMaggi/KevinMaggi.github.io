@@ -14,7 +14,7 @@ h3, .h3 {
     }
 }
 
-#titles-list {
+#titles-list, #academic-positions-list, #jobs-list {
     
     .title {
         
@@ -40,7 +40,7 @@ h3, .h3 {
         }
         
         .label {
-            font-weight: 600;
+            font-weight: 400;
             font-style: normal;
         }
         
@@ -50,14 +50,29 @@ h3, .h3 {
         
         .field {
             
-            .course {
+            .course, {
                 font-weight: bold;
                 font-style: italic;
             }
         }
         
+        .job {
+            
+            .position {
+                font-weight: bold;
+            }
+            
+            .organization {
+                font-style: italic
+            }
+        }
+        
         .institution {
             
+        }
+        
+        .department, .laboratory {
+            font-size: smaller;
         }
         
         .grade {
@@ -79,6 +94,12 @@ h3, .h3 {
         
         .details {
             display: none;
+            font-weight: 300;
+            
+            .label {
+                font-weight: 500;
+                font-style: normal;
+            }
             
             .title-description {
                 font-size: smaller;
@@ -138,6 +159,11 @@ h3, .h3 {
             margin: 5px 0;
         }
         
+        .label {
+            font-weight: 400;
+            font-style: normal;
+        }
+        
         .roles, .events {
             list-style: none;
             padding: 0;
@@ -185,13 +211,14 @@ h3, .h3 {
         
         .details {
             display: none;
+            font-weight: 300;
             
             .activity-description, .activity-skills {
                 font-size: smaller;
             }
             
             .label {
-                font-weight: 600;
+                font-weight: 500;
                 font-style: normal;
             }
             

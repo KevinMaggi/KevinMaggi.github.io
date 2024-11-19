@@ -2,9 +2,12 @@
 #   type: 
 #   eqf: 
 #   field: 
-#   institution: 
-#   city: 
-#   country: 
+#   institution:
+#     name:
+#     acronym:
+#     url:
+#     city:
+#     country:
 #   description: 
 #   grade: 
 #   thesis-title: 
@@ -16,9 +19,12 @@
   type: master
   eqf: 7
   field: Computer Engineering
-  institution: Università degli Studi di Firenze
-  city: Firenze
-  country: Italy
+  institution: 
+    name: Università degli Studi di Firenze
+    acronym: Unifi
+    url: https://www.unifi.it
+    city: Firenze
+    country: Italy
   description: |-
     My statutory curriculum has been designed to focus on Software Intensive Systems, delving into essential concepts such as software models and architectures that address the state-of-art development of complex information systems and management practices. The curriculum also covered the nuances of real-time and embedded systems, where dependability attributes, qualitative and formal correctness verification, and quantitative performance evaluation are critical.
   grade: 110 cum Laude
@@ -29,9 +35,12 @@
   type: bechelor
   eqf: 6
   field: Computer Engineering
-  institution: Università degli Studi di Firenze
-  city: Firenze
-  country: Italy
+  institution: 
+    name: Università degli Studi di Firenze
+    acronym: Unifi
+    url: https://www.unifi.it
+    city: Firenze
+    country: Italy
   description: |-
     The course provided a solid theoretical and practical foundation in Computer Engineering, focusing on mathematical and systems-oriented methodologies, rooted in abstraction, formal methods, algorithms, modeling approaches, and problem-solving techniques. The curriculum covered ground concepts for the development of information processing applications, including multimedia software, information systems, web applications, embedded software components, and scientific computing.
   grade: 107
@@ -42,9 +51,11 @@
   type: high-school
   eqf: 4
   field: Scientific Lyceum
-  institution: Liceo Scientifico "N. Copernico"
-  city: Prato
-  country: Italy
+  institution:
+    name: Liceo Scientifico "N. Copernico"
+    url: https://www.copernicoprato.edu.it
+    city: Prato
+    country: Italy
   description: |-
     The program provided a comprehensive education with a focus on developing strong analytical and problem-solving skills by emphasizing scientific and mathematical subjects while incorporating humanities to foster critical thinking skills.
   grade: 95

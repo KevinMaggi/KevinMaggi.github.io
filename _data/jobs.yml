@@ -1,0 +1,28 @@
+# - link:  # to reference other resource like academic positions
+#     list:
+#     index:
+#   field:
+#   from:
+#   to: (null for "current")
+#   institution:
+#     name:
+#     acronym:
+#     url:
+#     city:
+#     country:
+#   department:
+#     name:
+#     acronym:
+#     url:
+#   laboratory:
+#     name:
+#     acronym:
+#     url:
+#   positions:
+#     - 
+#   description: |-
+
+- link:
+    id: Scholarship_Researcher_2024
+    list: academia
+    index: 0

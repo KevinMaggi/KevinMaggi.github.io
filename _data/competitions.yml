@@ -4,6 +4,9 @@
 #   events:
 #     - title: 
 #       by: 
+#         name:
+#         acronym:
+#         url:
 #       from: (null for no dates)
 #       to:  (null for "current")
 #       levels:
@@ -23,7 +26,10 @@
   to: 2016
   events:
     - title: Italian Mathematical Olympiad
-      by: Italian Mathematical Union (UMI)
+      by: 
+        name: Italian Mathematical Union
+        acronym: UMI
+        url: https://umi.dm.unibo.it
       levels:
         - level: Institute
           speciality: individual

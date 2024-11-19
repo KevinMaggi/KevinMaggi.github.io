@@ -1,0 +1,38 @@
+# - position:
+#   from:
+#   to: (null for "current")
+#   institution:
+#     name:
+#     acronym:
+#     url:
+#     city:
+#     country:
+#   department:
+#     name:
+#     acronym:
+#     url:
+#   laboratory:
+#     name:
+#     acronym:
+#     url:
+#   description: |-
+  
+- position: Scholarship Researcher
+  from: 01/02/2024
+  to: 
+  institution: 
+    name: Università degli Studi di Firenze
+    acronym: Unifi
+    url: https://www.unifi.it
+    city: Florence
+    country: Italy
+  department: 
+    name: Department of Information Engineering
+    acronym: DINFO
+    url: https://www.dinfo.unifi.it
+  laboratory: 
+    name: Software Technology Laboratory
+    acronym: STLab
+    url: https://stlab.dinfo.unifi.it
+  description: |-
+    Conducting a research project in collaboration with Fondazione Cassa di Risparmio di Firenze and School 42 in Florence with the aim of identifying factors that have a positive impact on education and training in the field of software engineering and programming.
