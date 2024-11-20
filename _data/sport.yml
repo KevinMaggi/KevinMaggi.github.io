@@ -1,4 +1,5 @@
-# - denomination: 
+# - key: 
+#   denomination: 
 #   from: 
 #   to:  (null for "current")
 #   roles:
@@ -19,7 +20,8 @@
 #       description: 
 
 
-- denomination: Basketball Refereeing
+- key: basketball_refereeing
+  denomination: Basketball Refereeing
   from: 2014
   to: 
   roles:

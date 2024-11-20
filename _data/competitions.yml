@@ -1,4 +1,5 @@
-# - denomination: 
+# - key: 
+#   denomination: 
 #   from: 
 #   to:  (null for "current")
 #   events:
@@ -21,7 +22,8 @@
 #       description: 
 
 
-- denomination: Mathematical Competitions
+- key: mathematical_competition
+  denomination: Mathematical Competitions
   from: 2014
   to: 2016
   events:

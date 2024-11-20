@@ -1,4 +1,5 @@
-# - year:
+# - key: 
+#   year:
 #   type: 
 #   eqf: 
 #   field: 
@@ -15,7 +16,8 @@
 #   thesis-doc:
 #   thesis-slides:
 
-- year: 2023
+- key: master_2023
+  year: 2023
   type: master
   eqf: 7
   field: Computer Engineering
@@ -31,7 +33,8 @@
   thesis-title: |-
     Analysis of the Evolution of Code Technical Debt in Microservices Architectures
   thesis-link: master_2023
-- year: 2020
+- key: bechelor_2020
+  year: 2020
   type: bechelor
   eqf: 6
   field: Computer Engineering
@@ -47,7 +50,8 @@
   thesis-title: |-
     Design and development of a software component for the derivation of Petri preemptive models from specific timeline
   thesis-link: bechelor_2020
-- year: 2016
+- key: highschool_2016
+  year: 2016
   type: high-school
   eqf: 4
   field: Scientific Lyceum

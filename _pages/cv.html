@@ -26,17 +26,25 @@ Here, you will find an extensive outline of my educational background, professio
 For a more comprehensive and detailed overview of my background, please feel free to download my complete CV.
 
 <div id="cv">
-    <a href="###" title="Download my CV" class="btn btn-sm btn-primary"  role="button">
+    <a href="{{- site.url -}}/assets/about/{{- site.data.about-me.cv -}}" title="Download my CV" class="btn btn-primary"  role="button">
         <i class="fa-solid fa-file-lines fa-fw"></i>
         <span>My CV</span>
     </a>
+</div>
+
+<h2 id="about-me"><i class="fa-solid fa-user fa-fw" aria-hidden="true"></i>&nbsp;About me</h2>
+
+<div id="about-me" class="card">
+    <div class="card-body">
+        {{- site.data.about-me.about -}}
+    </div>
 </div>
 
 <h2 id="education"><i class="fa-solid fa-graduation-cap fa-fw" aria-hidden="true"></i>&nbsp;Education</h2>
 
 <ul id="titles-list" class="list-unstyled">
 {%- for title in site.data.titles -%}
-    <li id="{{- title.type -}}_{{- title.year -}}" class="title card">
+    <li id="{{- title.key -}}" class="title card">
         <div class="info card-header">
             <div class="year">
                 <span class="badge rounded-pill text-bg-secondary">
@@ -58,11 +66,11 @@ For a more comprehensive and detailed overview of my background, please feel fre
                     {%- endcase -%}
                     </span>
                 {%- if title.eqf -%}
-                    &nbsp;|&nbsp;<small>EQF {{ title.eqf }}</small>
+                    &nbsp;&#9168;&nbsp;<small>EQF {{ title.eqf }}</small>
                 {%- endif -%}
                 </span>
             </div>
-            <a href="#{{- title.type -}}_{{- title.year -}}" title="Permalink" class="card-link">
+            <a href="#{{- title.key -}}" title="Permalink" class="card-link">
                 <span class="fa-solid fa-link fa-fw"></span>
                 <span class="visually-hidden">Permalink</span>
             </a>
@@ -158,14 +166,14 @@ For a more comprehensive and detailed overview of my background, please feel fre
 
 <ul id="academic-positions-list" class="list-unstyled">
 {%- for position in site.data.academia -%}
-    <li id="{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}" class="title card">
+    <li id="{{- position.key -}}" class="title card">
         <div class="info card-header">
             <div class="year">
                 <span class="badge rounded-pill text-bg-secondary">
                     {{- position.from }} - {% if position.to -%} {{- position.to -}} {%- else -%} current {%- endif -%}
                 </span>
             </div>
-            <a href="#{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}" title="Permalink" class="card-link">
+            <a href="#{{- position.key -}}" title="Permalink" class="card-link">
                 <span class="fa-solid fa-link fa-fw"></span>
                 <span class="visually-hidden">Permalink</span>
             </a>
@@ -234,7 +242,9 @@ For a more comprehensive and detailed overview of my background, please feel fre
 {%- endfor -%}
 </ul>
 
-<p>For additional information about my research activity and publications, please visit the <a href="/works"><i class="fa fa-book-open fa-fw"></i>Work page</a>. There, you will find a comprehensive overview of my projects and contributions to the field.</p>
+<div class="alert alert-info" role="alert">
+For additional information about my research activity and publications, please visit the <a href="/works" class="alert-link"><i class="fa fa-book-open fa-fw"></i>Work page</a>. There, you will find a comprehensive overview of my projects and contributions to the field.
+</div>
 
 <h2 id="job"><i class="fa-solid fa-id-badge fa-fw" aria-hidden="true"></i>&nbsp;Work Experience</h2>
 
@@ -282,13 +292,13 @@ For a more comprehensive and detailed overview of my background, please feel fre
 </ul>
 
 
-<h2 id="extracurricular-activities"><i class="fa-solid fa-person-walking fa-fw" aria-hidden="true"></i>&nbsp;Extracurricular Activities</h2>
+<h2 id="other-experiences-activities"><i class="fa-solid fa-person-walking fa-fw" aria-hidden="true"></i>&nbsp;Other Experiences</h2>
 
 <h3 id="sport"><i class="fa-solid fa-basketball fa-fw" aria-hidden="true"></i>&nbsp;Sport</h3>
 
 <ul id="sport-activities-list" class="list-unstyled">
 {%- for activity in site.data.sport -%}
-    <li id="{{- activity.denomination | replace: ' ', '_' -}}" class="activity card">
+    <li id="{{- activity.key -}}" class="activity card">
         <div class="info card-header">
             <div class="year">
                 <span class="badge rounded-pill text-bg-secondary">
@@ -296,11 +306,11 @@ For a more comprehensive and detailed overview of my background, please feel fre
                 </span>
             </div>
             <div class="denomination">
-                <span class="badge rounded-pill text-bg-primary">
+                <span class="badge rounded-pill text-bg-info">
                     <span>{{- activity.denomination -}}</span>
                 </span>
             </div>
-            <a href="#{{- activity.denomination | replace: ' ', '_' -}}" title="Permalink" class="card-link">
+            <a href="#{{- activity.key -}}" title="Permalink" class="card-link">
                 <span class="fa-solid fa-link fa-fw"></span>
                 <span class="visually-hidden">Permalink</span>
             </a>
@@ -332,7 +342,7 @@ For a more comprehensive and detailed overview of my background, please feel fre
                             <span class="label">Qualifications</span>:
                         {% for qualification in role.qualifications -%}
                             <div class="qualification">
-                                <span class="badge rounded-pill text-bg-info">
+                                <span class="badge rounded-pill text-bg-primary">
                                     {{- qualification -}}
                                 </span>
                             </div>
@@ -353,7 +363,7 @@ For a more comprehensive and detailed overview of my background, please feel fre
                     {%- endif -%}
                     </div>
                 </li>
-                {%- unless forloop.last -%} <hr> {% endunless -%}
+                {%- unless forloop.last -%} <hr aria-hidden="true"> {% endunless -%}
             {%- endfor -%}
             </ul>
         </div>
@@ -393,7 +403,7 @@ For a more comprehensive and detailed overview of my background, please feel fre
 
 <ul id="competition-activities-list" class="list-unstyled">
 {%- for activity in site.data.competitions -%}
-    <li id="{{- activity.denomination | replace: ' ', '_' -}}" class="activity card">
+    <li id="{{- activity.key -}}" class="activity card">
         <div class="info card-header">
             <div class="year">
                 <span class="badge rounded-pill text-bg-secondary">
@@ -401,11 +411,11 @@ For a more comprehensive and detailed overview of my background, please feel fre
                 </span>
             </div>
             <div class="denomination">
-                <span class="badge rounded-pill text-bg-primary">
+                <span class="badge rounded-pill text-bg-info">
                     <span>{{- activity.denomination -}}</span>
                 </span>
             </div>
-            <a href="#{{- activity.denomination | replace: ' ', '_' -}}" title="Permalink" class="card-link">
+            <a href="#{{- activity.key -}}" title="Permalink" class="card-link">
                 <span class="fa-solid fa-link fa-fw"></span>
                 <span class="visually-hidden">Permalink</span>
             </a>
@@ -439,10 +449,10 @@ For a more comprehensive and detailed overview of my background, please feel fre
                             <span class="label">Levels</span>:
                         {% for level in event.levels -%}
                             <div class="level">
-                                <span class="badge rounded-pill text-bg-info">
+                                <span class="badge rounded-pill text-bg-primary">
                                     {{- level.level -}}
                                 {%- if level.speciality -%}
-                                    &nbsp;|&nbsp;<small>{{- level.speciality -}}</small>
+                                    &nbsp;&#9168;&nbsp;<small>{{- level.speciality -}}</small>
                                 {%- endif -%}
                                 </span>
                             </div>
@@ -457,7 +467,7 @@ For a more comprehensive and detailed overview of my background, please feel fre
                                 <span class="badge rounded-pill text-bg-success">
                                     {{- title.title -}}
                                 {%- if title.speciality -%}
-                                    &nbsp;|&nbsp;<small>{{- title.speciality -}}</small>
+                                    &nbsp;&#9168;&nbsp;<small>{{- title.speciality -}}</small>
                                 {%- endif -%}
                                 </span>
                             </div>
@@ -506,7 +516,73 @@ For a more comprehensive and detailed overview of my background, please feel fre
 
 <h3 id="language-skills"><i class="fa-solid fa-globe fa-fw" aria-hidden="true"></i>&nbsp;Language Skills</h3>
 
+<ul id="languages-list" class="list-unstyled">
+{%- for language in site.data.about-me.languages -%}
+    <li class="language card">
+        <div class="card-body">
+            <div>
+                <span class="name">{{- language.language -}}</span>: <span class="level">{{- language.type -}}</span>
+            </div>
+        {%- if language.certificate -%}
+            <div class="certificate">
+                <span class="badge rounded-pill text-bg-primary">
+                    {{- language.certificate.name -}}&nbsp;&#9168;&nbsp;<small>{{- language.certificate.level -}}</small>
+                </span>
+            </div>
+        {%- elsif language.skills -%}
+            <div class="skills">
+                <div class="skill badge rounded-pill text-bg-dark">
+                    <span><i class="fa-solid fa-headphones fa-fw"></i></span>&nbsp;&#9168;&nbsp;<span>Listening</span>&nbsp;&#9168;&nbsp;<span>{{- language.skills.listening -}}</span>
+                </div>
+                <div class="skill badge rounded-pill text-bg-dark">
+                    <span><i class="fa-solid fa-book-open fa-fw"></i></span>&nbsp;&#9168;&nbsp;<span>Reading</span>&nbsp;&#9168;&nbsp;<span>{{- language.skills.reading -}}</span>
+                </div>
+                <div class="skill badge rounded-pill text-bg-dark">
+                    <span><i class="fa-solid fa-pen-fancy fa-fw"></i></span>&nbsp;&#9168;&nbsp;<span>Writing</span>&nbsp;&#9168;&nbsp;<span>{{- language.skills.writing -}}</span>
+                </div>
+                <br>
+                <div class="skill badge rounded-pill text-bg-dark">
+                    <span><i class="fa-solid fa-envelope-open-text fa-fw"></i></span>&nbsp;&#9168;&nbsp;<span>Spoken production</span>&nbsp;&#9168;&nbsp;<span>{{- language.skills.spoken-production -}}</span>
+                </div>
+                <div class="skill badge rounded-pill text-bg-dark">
+                    <span><i class="fa-solid fa-bullhorn fa-fw"></i></span>&nbsp;&#9168;&nbsp;<span>Spoken interaction</span>&nbsp;&#9168;&nbsp;<span>{{- language.skills.spoken-interaction -}}</span>
+                </div>
+            </div>
+        {%- endif -%}
+        </div>
+    </li>
+{%- endfor -%}
+</ul>
+
+
 <h3 id="soft-skills"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i>&nbsp;Soft Skills</h3>
+
+<div id="soft-skills-list">
+{%- assign experiences = site.data.sport | concat: site.data.competitions -%}
+{%- for experience in experiences -%}
+    {%- for skill in experience.skills -%}
+        <div class="skill">
+            <a href="#{{- experience.key -}}" title="Go to the related experience">
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                <span class="badge rounded-pill text-bg-success">{{- skill.name -}}</span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+            </a>
+        </div>
+    {% endfor -%}
+{%- endfor -%}
+</div>
+
+
+<h2 id="personal-interests"><i class="fa-solid fa-person fa-fw" aria-hidden="true"></i>&nbsp;Personal Interests</h2>
+
+<div id="personal-interests-list">
+{%- for interest in site.data.about-me.interests -%}
+    <div class="interest">
+        <span class="badge rounded-pill text-bg-info"><i class="fa-solid {{ interest.icon }} fa-fw"></i>&nbsp;{{- interest.name -}}</span>
+    </div>
+{% endfor -%}
+</div>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {

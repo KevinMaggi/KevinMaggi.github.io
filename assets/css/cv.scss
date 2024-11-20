@@ -14,6 +14,10 @@ h3, .h3 {
     }
 }
 
+#about-me, #languages {
+    margin-bottom: 1rem;
+}
+
 #titles-list, #academic-positions-list, #jobs-list {
     
     .title {
@@ -257,6 +261,57 @@ h3, .h3 {
     }
 }
 
-p .fa {
+#soft-skills-list {
+    text-align: center;
+    margin-bottom: 1rem;
+    
+    .skill {
+        display: inline-block;
+        font-size: larger;
+    }
+}
+
+#languages-list {
+    
+    .language {
+        
+        .name {
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        .level {
+            font-weight: normal;
+            font-style: italic;
+        }
+        
+        .certificate {
+            text-align: center;
+        }
+        
+        .skills {
+            text-align: center;
+            
+            .skill {
+                
+                :nth-of-type(2) {
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
+
+#personal-interests-list {
+    text-align: center;
+    margin-bottom: 1rem;
+    
+    .interest {
+        display: inline-block;
+        font-size: larger;
+    }
+}
+
+div .fa {
     margin-right: 5px;
 }

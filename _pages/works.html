@@ -47,7 +47,7 @@ toc_icon: book-open
                 {%- endcase -%}
                 </span>
             {%- if publication.pub_type -%}
-                &nbsp;|&nbsp;<small>{{- publication.pub_type -}}</small>
+                &nbsp;&#9168;&nbsp;<small>{{- publication.pub_type -}}</small>
             {%- endif -%}
             </span>
         {% if publication.extension_of %}
@@ -294,8 +294,8 @@ toc_icon: book-open
     <ul id="statistics-list">
         {%- assign real_publications = site.data.publications | where_exp: "pub", "pub.venue_type == 'journal' or pub.pub_type != 'pre-proceeding'" -%}
         <li>currently, I have co-authored <b>{{- real_publications.size -}}</b> publications;</li>
-        <li>currently, my <a href="https://en.wikipedia.org/wiki/H-index" rel="noopener noreferrer nofollow external" title="Maximum value of h such that at least h of my papers have each been cited at least h times"><i>h</i>-index</a> is <b>1</b>;</li>
-        <li>currently, my <a href="https://en.wikipedia.org/wiki/Erdős_number" rel="noopener noreferrer nofollow external" title="The collaborative distance between me and the mathematician Paul Erdős">Erdős number</a> is <b>5</b>.</li>
+        <li>currently, my <a href="https://en.wikipedia.org/wiki/H-index" class="alert-link" rel="noopener noreferrer nofollow external" title="Maximum value of h such that at least h of my papers have each been cited at least h times"><i>h</i>-index</a> is <b>1</b>;</li>
+        <li>currently, my <a href="https://en.wikipedia.org/wiki/Erdős_number" class="alert-link" rel="noopener noreferrer nofollow external" title="The collaborative distance between me and the mathematician Paul Erdős">Erdős number</a> is <b>5</b>.</li>
     </ul>
 </div>
 
@@ -321,7 +321,7 @@ toc_icon: book-open
                 {%- endcase -%}
                 </span>
                 {%- if speaking.venue_type -%}
-                &nbsp;|&nbsp;<small>{{ speaking.venue_type }}</small>
+                &nbsp;&#9168;&nbsp;<small>{{ speaking.venue_type }}</small>
             {%- endif -%}
             </span>
         {% if speaking.publication %}
@@ -462,7 +462,7 @@ toc_icon: book-open
                 {%- endcase -%}
                 </span>
                 {%- if thesis.eqf -%}
-                &nbsp;|&nbsp;<small>EQF {{ thesis.eqf }}</small>
+                &nbsp;&#9168;&nbsp;<small>EQF {{ thesis.eqf }}</small>
             {%- endif -%}
             </span>
             <a href="#{{- thesis.type -}}_{{- thesis.year -}}" title="Permalink" class="card-link">

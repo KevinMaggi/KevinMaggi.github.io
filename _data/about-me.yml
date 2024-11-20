@@ -1,0 +1,43 @@
+# cv:
+# about:
+# languages:
+#   - language: 
+#     type: 
+#     skills:
+#       listening: 
+#       reading: 
+#       writing: 
+#       spoken-production: 
+#       spoken-interaction: 
+#     certificate:
+#       level:
+#       name:
+# interests:
+#   - name:
+#     icon:
+
+cv: cv-en
+about: |-
+  Computer Engineering graduate with a strong interest in Software Engineering and Software Architecture fields. Constantly driven by curiosity and enthusiasm to find innovative solutions to problems (even those that no one has noticed yet).
+languages:
+  - language: Italian
+    type: Native language
+  - language: English
+    type: Professional working proficiency
+    skills:
+      listening: B2
+      reading: C1
+      writing: B2
+      spoken-production: B2
+      spoken-interaction: B1
+interests:
+  - name: Reading
+    icon: fa-book
+  - name: Basketball
+    icon: fa-basketball
+  - name: Traveling
+    icon: fa-earth-europe
+  - name: Learning
+    icon: fa-atom
+  - name: Coin collecting
+    icon: fa-coins

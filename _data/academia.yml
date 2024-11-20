@@ -1,4 +1,5 @@
-# - position:
+# - key:
+#   position:
 #   from:
 #   to: (null for "current")
 #   institution:
@@ -17,7 +18,8 @@
 #     url:
 #   description: |-
   
-- position: Scholarship Researcher
+- key: scholarship_researcher_2024
+  position: Scholarship Researcher
   from: 01/02/2024
   to: 
   institution: 
