@@ -80,7 +80,7 @@ repository: "KevinMaggi/KevinMaggi.github.io"
 
 # Appearence
 # teaser: /assets/images/teaser_image.png # TODO
-logo: "/assets/images/masthead_logo.png" # TODO
+logo: "/assets/images/masthead_logo.png"
 masthead_title: "KEVIN MAGGI"
 
 breadcrumbs: true
