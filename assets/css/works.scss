@@ -64,7 +64,11 @@ p .fa {
         .awards {
             
             .award{
+                margin: 0 auto;
                 
+                a {
+                    text-decoration: none;
+                }
             }
         }
         
@@ -281,6 +285,17 @@ p .fa {
         
         .supervisors span:nth-of-type(2), .co-supervisors span:nth-of-type(2) {
             font-style: italic;
+        }
+        
+        .awards {
+            
+            .award{
+                margin: 0 auto;
+                
+                a {
+                    text-decoration: none;
+                }
+            }
         }
         
         .details {

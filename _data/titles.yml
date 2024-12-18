@@ -34,10 +34,10 @@
   description: |-
     My statutory curriculum has been designed to focus on Software Intensive Systems, delving into essential concepts such as software models and architectures that address the state-of-art development of complex information systems and management practices. The curriculum also covered the nuances of real-time and embedded systems, where dependability attributes, qualitative and formal correctness verification, and quantitative performance evaluation are critical.
   grade: 110 cum Laude
-  # awards: # TODO a premiazione avvenuta
-    # - name: Order of Engineers Degree Award
-      # link:  # TODO
-      # alt: Order of Engineers Degree Award for the Information Sector related to PNRR topics
+  awards:
+    - name: Order of Engineers Degree Award
+      link: "#"  # TODO
+      alt: Order of Engineers Degree Award for the Information Sector related to PNRR topics
   thesis-title: |-
     Analysis of the Evolution of Code Technical Debt in Microservices Architectures
   thesis-link: master_2023

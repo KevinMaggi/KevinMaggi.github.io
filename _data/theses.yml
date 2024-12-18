@@ -9,9 +9,13 @@
     - E. Vicario
   co-supervisors:
     - L. Scommegna
-  manuscript: # master 2023  # TODO a fine embargo
+  manuscript: # master2023  # TODO a fine embargo
   slides: # master2023  # TODO a fine embargo
   repository: https://github.com/KevinMaggi/evolution-of-code-td-in-msa_rep-pkg
+  awards:
+    - name: Order of Engineers Degree Award
+      link: "#"  # TODO 
+      alt: Order of Engineers Degree Award for the Information Sector related to PNRR topics
 - year: 2020
   type: bechelor
   eqf: 6

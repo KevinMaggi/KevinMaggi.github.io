@@ -149,11 +149,11 @@ toc_icon: book-open
         {%- if publication.awards -%}
             <ul class="awards list-unstyled">
             {% for award in publication.awards %}
-                <li class="award badge rounded-pill text-bg-success">
-                    <i class="fa-solid fa-award"></i>
-                    <span class="award">
-                        {{- award -}}
-                    </span>
+                <li class="award">
+                    <a href="{%- if award.link contains 'https://' or award.link contains 'www.' -%}{{- award.link -}}{%- else -%}{{- site.url -}}/assets/awards/{{- award.link -}}{%- endif -%}" target="_blank" class="badge rounded-pill text-bg-success" title="{{- award.alt -}}">
+                        <i class="fa-solid fa-award"></i>
+                        <span>{{- award.name -}}</span>
+                    </a>
                 </li>
             {% endfor %}
             </ul>
@@ -499,6 +499,18 @@ toc_icon: book-open
                 {%- endfor %}
                     </span>
             </div>
+        {%- if thesis.awards -%}
+            <ul class="awards list-unstyled">
+            {% for award in thesis.awards %}
+                <li class="award">
+                    <a href="{%- if award.link contains 'https://' or award.link contains 'www.' -%}{{- award.link -}}{%- else -%}{{- site.url -}}/assets/awards/{{- award.link -}}{%- endif -%}" target="_blank" class="badge rounded-pill text-bg-success" title="{{- award.alt -}}">
+                        <i class="fa-solid fa-award"></i>
+                        <span>{{- award.name -}}</span>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {%- endif -%}
         </div>
         <div class="details card-footer">
             <div class="links">

@@ -86,6 +86,22 @@ h3, .h3 {
             }
         }
         
+        .awards {
+            
+            .awards-list {
+                display: inline;
+            
+                .award{
+                    margin: 0 auto;
+                    display: inline;
+
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        
         .details-btn {
             display: block;
             margin: 0 auto;

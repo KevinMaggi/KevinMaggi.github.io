@@ -81,19 +81,19 @@ For a more comprehensive and detailed overview of my background, please feel fre
             </div>
             <div class="institution">
                 <span class="label">Institution</span>:
-            {%- if title.institution.url -%}
+        {%- if title.institution.url -%}
                 &#32;<a href="{{- title.institution.url -}}" target="_blank">
-            {%- endif -%}
+        {%- endif -%}
                     {{ title.institution.name }}
                 {%- if title.institution.acronym -%}
                     &#32;({{- title.institution.acronym -}})
                 {%- endif -%}
-            {%- if title.institution.url -%}
+        {%- if title.institution.url -%}
                 </a>
-            {%- endif -%}
+        {%- endif -%}
                 &#32;<span class="place">({{ title.institution.city }}, {{ title.institution.country }})</span>
             </div>
-            {% if title.grade -%}
+        {% if title.grade -%}
             <div class="grade">
                 <span class="label">Final grade</span>:
                 <span class="badge rounded-pill text-bg-success">
@@ -111,7 +111,22 @@ For a more comprehensive and detailed overview of my background, please feel fre
                     </small>
                 </span>
             </div>
-            {%- endif %}
+        {%- endif %}
+        {% if title.awards -%}
+            <div class="awards">
+                <span class="label">Awards</span>:
+                <ul class="awards-list list-unstyled">
+                {%- for award in title.awards -%}
+                    <li class="award">
+                        <a href="{%- if award.link contains 'https://' or award.link contains 'www.' -%}{{- award.link -}}{%- else -%}{{- site.url -}}/assets/awards/{{- award.link -}}{%- endif -%}" target="_blank" class="badge rounded-pill text-bg-success" title="{{- award.alt -}}">
+                            <i class="fa-solid fa-award"></i>
+                            <span>{{- award.name -}}</span>
+                        </a>
+                    </li>
+                {%- endfor -%}
+                </ul>
+            </div>
+        {%- endif %}
         </div>
         <div class="controls card-footer">
             <button type="button" name="Details" aria-label="Show details" title="Toggle details" aria-controls="{{- title.type -}}_{{- title.year -}}-details" aria-expanded="false" class="details-btn btn">
