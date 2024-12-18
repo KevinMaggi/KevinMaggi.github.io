@@ -18,7 +18,12 @@ $global-transition: none;  /* If disabled Lighthouse doesn't work */
 
 @import "works";
 @import "cv";
-    
+@import "home";
+
+/* Disable selection */
+body * {
+    user-select: none;
+}
     
 /* Generic customizations */
 .breadcrumbs ol {
@@ -29,7 +34,7 @@ $global-transition: none;  /* If disabled Lighthouse doesn't work */
     margin-bottom: 20px;
 }
 
-.sidebar .social-icons {
+.sidebar .social-icons, #icons {
     .fa-researchgate {
         color: #0AC5B2;
     }
@@ -44,6 +49,10 @@ $global-transition: none;  /* If disabled Lighthouse doesn't work */
     }
     .fa-github {
         color: #171515;
+    }
+    
+    .fa-linkedin {
+        color: #007bb6;
     }
 }
 

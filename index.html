@@ -4,12 +4,11 @@ permalink: /
 
 layout: splash
 
-excerpt: ""
+excerpt: "Welcome!"
 header:
   overlay_color: "#5e616c"
-  overlay_image: assets/images/headers/under-construction.webp
+  overlay_image: assets/images/headers/home.webp
   caption:
-
 
 author_profile: false
 
@@ -18,8 +17,190 @@ toc_label:
 toc_icon: 
 ---
 
-<p>I'm building the site, but you can already consult the following pages:</p>
-<ul>
-    <li><a href="/works/">Works</a></li>
-    <li><a href="/cv/">Curriculum Vitae</a></li>
-</ul>
+<div id="photo">
+    <img src="assets/images/bio-photo.webp" draggable="false">
+</div>
+
+<div id="sign"><span id="name">Kevin Maggi</span>, M.Sc.</div>
+
+<div id="abstract">
+    <div id="last-title" class="card">
+    {%- assign title = site.data.titles[0] -%}
+        <div class="info card-header">
+            <span class="label">My qualification:</span>
+            <a href="/cv/#{{- title.key -}}" title="Go to this degree" class="card-link">
+                <i class="fa-solid fa-circle-arrow-right fa-fw"></i>
+                <span class="visually-hidden">Go to this degree</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <span class="type">
+            {%- case title.type -%}
+                {%- when "master" -%}
+                    2<sup>nd</sup> Cycle (Master's) Degree
+                {%- when "bechelor" -%}
+                    1<sup>st</sup> Cycle (Bechelor's) Degree
+                {%- when "high-school" -%}
+                    High-School Diploma
+                {%- else -%}
+                    Other title
+            {%- endcase -%}
+            </span>
+            in <span class="course">{{ title.field -}}</span>
+            at <span class="institution">
+            {%- if title.institution.url -%}
+                &#32;<a href="{{- title.institution.url -}}" target="_blank">
+            {%- endif -%}
+                    {{ title.institution.name }}
+                {%- if title.institution.acronym -%}
+                    &#32;({{- title.institution.acronym -}})
+                {%- endif -%}
+            {%- if title.institution.url -%}
+                </a>
+            {%- endif -%}
+            </span>
+            <span class="place">({{ title.institution.city }}, {{ title.institution.country }})</span>
+        </div>
+    </div>
+
+    <div id="current-employment" class="card">
+    {%- assign job = site.data.jobs[0] -%}
+    {%- if job.link -%}
+    {%- assign position = site.data.[job.link.list][job.link.index] -%}
+        <div class="card-header">
+            <span class="label">My current employment:</span>
+            <a href="/cv/#{{- job.link.id -}}" title="Go to this experience" class="card-link">
+                <i class="fa-solid fa-circle-arrow-right fa-fw"></i>
+                <span class="visually-hidden">Go to this experience</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="job">
+                <span class="position">{{ position.position -}}</span> at
+            {%- if position.institution.url -%}
+                &#32;<a href="{{- position.institution.url -}}" target="_blank">
+            {%- endif -%}
+                    <span class="organization">{{ position.institution.name }}
+                {%- if position.institution.acronym -%}
+                    &#32;({{- position.institution.acronym -}})</span>
+                {%- endif -%}
+            {%- if position.institution.url -%}
+                </a>
+            {%- endif -%}
+                &#32;<span class="place">({{ position.institution.city }}, {{ position.institution.country }})</span>
+            </div>
+        </div>
+    {%- else -%}
+
+    {%- endif -%}
+    </div>
+
+    <div id="last-publication" class="card">
+    {%- assign publication = site.data.publications[0] -%}
+        <div class="card-header">
+            <span class="label">My last publication:</span>
+            <a href="/works/#{{- publication.key -}}" title="Go to this publication" class="card-link">
+                <span class="fa-solid fa-circle-arrow-right fa-fw"></span>
+                <span class="visually-hidden">Go to this publication</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <span class="authors">
+                <span>
+                {%- for author in publication.authors -%}
+                    {%- if forloop.last %} and {% endif -%}
+                    <span class="{%- if author == "K. Maggi" -%} myself {%- endif -%}">
+                        {{- author -}}
+                    </span>
+                    {%- unless forloop.last -%}, {% endunless -%}
+                {%- endfor -%}
+                </span>
+                {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+            </span>, <span class="year">{{- publication.year -}}</span>.
+            <span class="title">
+                {{- publication.title -}}
+            </span>. In 
+            <span class="venue">
+                <span class="venue_name">
+                {%- if publication.venue.edition -%}
+                    {{- publication.venue.edition -}}
+                    <sup>
+                    {%- assign units = publication.venue.edition | modulo: 10 -%}
+                    {%- assign tens_and_units = publication.venue.edition | modulo: 100 -%}
+                    {%- if units == 1 and tens_and_units != 11 -%}
+                        st
+                    {%- elsif units == 2 and tens_and_units != 12 -%}
+                        nd
+                    {%- elsif units == 3 and tens_and_units != 13 -%}
+                        rd
+                    {%- else -%}
+                        th
+                    {%- endif -%}
+                    </sup>&nbsp;
+                {%- endif -%}
+                    {{- publication.venue.name -}}
+                {%- if publication.venue.issue -%}
+                    &nbsp;{{- publication.venue.issue -}}
+                {%- endif -%}
+                {%- if publication.venue.acronym -%}
+                    &nbsp;( {{- publication.venue.acronym -}} )
+                {%- endif -%}
+                </span>
+            {%- if publication.venue.special -%}
+                <span class="venue_special">, special issue on
+                    <span class="special_issue">
+                        {{- publication.venue.special -}}
+                    </span>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </span>
+            {%- endif -%}
+            {%- if publication.venue.colocation -%}
+                <span class="venue_colocation">, co-located with
+                    <span class="colocation_name">
+                    {%- if publication.venue.colocation.edition -%}
+                        {{- publication.venue.colocation.edition -}}
+                        <sup>
+                        {%- assign units = publication.venue.colocation.edition | modulo: 10 -%}
+                        {%- assign tens_and_units = publication.venue.colocation.edition | modulo: 100 -%}
+                        {%- if units == 1 and tens_and_units != 11 -%}
+                            st
+                        {%- elsif units == 2 and tens_and_units != 12 -%}
+                            nd
+                        {%- elsif units == 3 and tens_and_units != 13 -%}
+                            rd
+                        {%- else -%}
+                            th
+                        {%- endif -%}
+                        </sup>&nbsp;
+                    {%- endif -%}
+                        {{- publication.venue.colocation.name -}}
+                    {%- if publication.venue.colocation.acronym -%}
+                        &nbsp;( {{- publication.venue.colocation.acronym -}} )
+                    {%- endif -%}
+                    </span>
+                    {%- comment -%} Remove unwanted whitespace {%- endcomment -%}
+                </span>
+            {%- endif -%}
+            {%- if publication.venue.year -%},
+                <span class="venue_year">
+                    {{- publication.venue.year -}}
+                </span>
+            {%- endif -%}
+            </span>
+        </div>
+    </div>
+</div>
+
+<div id="icons">
+    <a href="https://www.linkedin.com/in/makev97" target="_blank" title="My Linkedin Profile"><i class="fa-fw fa-brands fa-linkedin"></i></a>
+    
+    <a href="https://github.com/KevinMaggi" target="_blank" title="My GitHub Profile"><i class="fa-fw fa-brands fa-github"></i></a>
+    
+    <a href="https://scholar.google.com/citations?user=18ohcmAAAAAJ" target="_blank" title="My Google Scholar Page"><i class="fa-fw fa-brands fa-google-scholar"></i></a>
+    
+    <a href="https://orcid.org/0009-0001-0651-805X" target="_blank" title="My ORCID Page"><i class="fa-fw fa-brands fa-orcid"></i></a>
+    
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=59202467200" target="_blank" title="My Scopus Page"><i class="ai  ai-fw ai-scopus"></i></a>
+    
+    <a href="https://www.researchgate.net/profile/Kevin-Maggi-4" target="_blank" title="My ResearchGate Profile"><i class="fa-fw fa-brands fa-researchgate"></i></a>
+</div>

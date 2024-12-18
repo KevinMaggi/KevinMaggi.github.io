@@ -1,0 +1,137 @@
+#photo {
+    width: 200px;
+    max-width: 50%;
+    position: relative;
+    top: -(100px + 10px);
+    border: 10px solid white;
+    border-radius: 50%;
+    margin: 12.5px auto;
+    margin-bottom: -(100px + 10px);
+    box-sizing: content-box;
+    
+    order: 2;
+    
+    img {
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px 2.5px #666666;;
+    }
+}
+
+#sign {
+    font-size: larger;
+    font-size: xx-large;
+    text-align: center;
+    margin-bottom: 20px;
+    
+    #name {
+        font-weight: 900;
+    }
+}
+
+#abstract {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 12.5px;
+}
+    
+#current-employment, #last-publication, #last-title {
+    margin: 0 auto;
+    width: calc(50% - 25px);
+    min-width: 300px;
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    .label {
+        font-style: italic;
+        font-weight: 200;
+        font-size: smaller;
+    }
+    
+    .card-link {
+        position: relative;
+        float: right;
+        opacity: 0;
+    }
+
+    .job {
+
+        .position {
+            font-weight: bold;
+        }
+
+        .organization {
+            font-style: italic
+        }
+    }
+    
+    .type, .course {
+        font-weight: bold;
+    }
+
+    .institution {
+        font-style: italic;
+    }
+
+    .department, .laboratory {
+        font-size: smaller;
+    }
+    
+    .authors {
+            
+        .myself {
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-underline-offset: 4.25px;
+            text-decoration-thickness: 1.25px;
+        }   
+    }
+
+    .title {
+        font-weight: bold;
+        margin: 5px 0;
+    }
+
+    .venue {
+
+        .venue_name, .colocation_name, .special_issue {
+            font-style: italic;
+        }
+
+    }
+    
+    &:hover {
+        .card-link {
+            opacity: 1;
+            
+            &:hover {
+                
+            }
+        }
+    }
+}
+
+#icons {
+    font-size: xx-large;
+    zoom: 150%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    
+    a {
+        margin: 0 10px;
+        
+        -webkit-transition: transform 1s ease-in-out;
+        -moz-transition: transform 1s ease-in-out;
+        -ms-transition: transform 1s ease-in-out;
+        -o-transition: transform 1s ease-in-out;
+        transition: transform 1s ease-in-out;
+        
+        &:hover {
+            transform: rotateY(360deg);
+            -ms-transform: rotateY(360deg);
+            -webkit-transform: rotateY(360deg);
+        }
+    }
+}
