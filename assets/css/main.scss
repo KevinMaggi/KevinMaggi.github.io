@@ -38,7 +38,7 @@ body * {
     .fa-researchgate {
         color: #0AC5B2;
     }
-    .ai-scopus {
+    .ai-scopus, .ai-elsevier {
         color: #FF7600;
     }
     .fa-orcid {
@@ -53,6 +53,18 @@ body * {
     
     .fa-linkedin {
         color: #007bb6;
+    }
+    
+    .ai-acm, .ai-acmdl {
+        color: #000000;
+    }
+    
+    .ai-springer {
+        color: #0f2d50;
+    }
+    
+    .ai-dblp {
+        color: #34592f;
     }
 }
 
