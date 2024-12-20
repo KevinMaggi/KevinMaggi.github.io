@@ -36,7 +36,7 @@
   grade: 110 cum Laude
   awards:
     - name: Order of Engineers Degree Award
-      link: "#"  # TODO
+      link: https://www.gallitorrini.com/comunicati/universita-dal-simulatore-per-motociclisti-alla-gestione-dei-rifiuti-sanitari-ecco-i-vincitori-dei-premi-e-borse-di-studio-dellordine-degli-ingegneri-di-firenze/
       alt: Order of Engineers Degree Award for the Information Sector related to PNRR topics
   thesis-title: |-
     Analysis of the Evolution of Code Technical Debt in Microservices Architectures

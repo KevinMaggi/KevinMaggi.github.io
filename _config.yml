@@ -112,7 +112,6 @@ social:
     - "https://www.facebook.com/MaKev97/"
     - "https://www.instagram.com/makev97/"
     - "https://www.linkedin.com/in/makev97"
-    - "https://www.researchgate.net/profile/Kevin-Maggi-4"
 
 # Author
 author:
@@ -124,6 +123,9 @@ author:
   location: "Prato, Italy"
   email: #TODO
   links:
+    - label: "LinkedIn"
+      icon: "fa-fw fa-brands fa-linkedin"
+      url: "https://www.linkedin.com/in/makev97"
     - label: "Google Scholar"
       icon: "fa-fw fa-brands fa-google-scholar"
       url: "https://scholar.google.com/citations?user=18ohcmAAAAAJ"
@@ -133,16 +135,13 @@ author:
     - label: "ResearchGate"
       icon: "fa-fw fa-brands fa-researchgate"
       url: "https://www.researchgate.net/profile/Kevin-Maggi-4"
-    - label: "LinkedIn"
-      icon: "fa-fw fa-brands fa-linkedin"
-      url: "https://www.linkedin.com/in/makev97"
     - label: "GitHub"
       icon: "fa-fw fa-brands fa-github"
       url: "https://github.com/KevinMaggi"
 
 # Footer
 footer:
-  links:
+  links:  # TODO
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/KevinMaggi"
