@@ -40,6 +40,228 @@ For a more comprehensive and detailed overview of my background, please feel fre
     </div>
 </div>
 
+<h2 id="job"><i class="fa-solid fa-id-badge fa-fw" aria-hidden="true"></i>&nbsp;Work Experience</h2>
+
+<ul id="jobs-list" class="list-unstyled">
+{%- for job in site.data.jobs -%}
+{%- if job.link -%}
+{%- assign position = site.data.[job.link.list][job.link.index] -%}
+    <li id="{{- job.link.id -}}_mirror" class="title card">
+        <div class="info card-header">
+            <div class="year">
+                <span class="badge rounded-pill text-bg-secondary">
+                    {{- position.from }} - {% if position.to -%} {{- position.to -}} {%- else -%} current {%- endif -%}
+                </span>
+            </div>
+            <div class="field">
+                <span class="badge rounded-pill text-bg-info">
+                    {{- job.field }}
+                </span>
+            </div>
+            <a href="#{{- job.link.id -}}_mirror" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="job">
+                <span class="position">{{ position.position -}}</span> at
+            {%- if position.institution.url -%}
+                &#32;<a href="{{- position.institution.url -}}" target="_blank">
+            {%- endif -%}
+                    <span class="organization">{{ position.institution.name }}
+                {%- if position.institution.acronym -%}
+                    &#32;({{- position.institution.acronym -}})</span>
+                {%- endif -%}
+            {%- if position.institution.url -%}
+                </a>
+            {%- endif -%}
+                &#32;<span class="place">({{ position.institution.city }}, {{ position.institution.country }})</span>
+                <a href="#{{- job.link.id -}}" title="Go to this experience">
+                    <i class="fa-solid fa-circle-arrow-right fa-fw"></i>
+                    <span class="visually-hidden">Go to this experience</span>
+                </a>
+            </div>
+        </div>
+    </li>
+{%- else -%}
+    <li id="{{- job.key -}}" class="title card">
+        <div class="info card-header">
+            <div class="year">
+                <span class="badge rounded-pill text-bg-secondary">
+                    {{- job.from }} - {% if job.to -%} {{- job.to -}} {%- else -%} current {%- endif -%}
+                </span>
+            </div>
+            <div class="field">
+                <span class="badge rounded-pill text-bg-info">
+                    {{- job.field }}
+                </span>
+            </div>
+            <a href="#{{- job.key -}}" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="job">
+                <span class="positions">
+                    <span class="position">
+                    {%- for position in job.positions -%}
+                        {{- position -}}
+                        {%- unless forloop.last -%}, {% endunless -%}
+                    {%- endfor -%}
+                    </span>
+                </span>
+                at
+            {%- if job.institution.url -%}
+                &#32;<a href="{{- job.institution.url -}}" target="_blank">
+            {%- endif -%}
+                    <span class="organization">{{ job.institution.name }}
+                {%- if job.institution.acronym -%}
+                    &#32;({{- job.institution.acronym -}})</span>
+                {%- endif -%}
+            {%- if job.institution.url -%}
+                </a>
+            {%- endif -%}
+                &#32;<span class="place">({{ job.institution.city }}, {{ job.institution.country }})</span>
+            </div>
+        {%- if job.department -%}
+            <div class="department">
+                <span class="label">Department</span>:
+            {%- if job.department.url -%}
+                &#32;<a href="{{- job.department.url -}}" target="_blank">
+            {%- endif -%}
+                    {{ job.department.name }}
+                {%- if job.department.acronym -%}
+                    &#32;({{- job.department.acronym -}})
+                {%- endif -%}
+            {%- if job.department.url -%}
+                </a>
+            {%- endif -%}
+            </div>
+        {%- endif -%}
+        {%- if job.laboratory -%}
+            <div class="laboratory">
+                <span class="label">Laboratory</span>:
+            {%- if job.laboratory.url -%}
+                &#32;<a href="{{- job.laboratory.url -}}" target="_blank">
+            {%- endif -%}
+                    {{ job.laboratory.name }}
+                {%- if job.laboratory.acronym -%}
+                    &#32;({{- job.laboratory.acronym -}})
+                {%- endif -%}
+            {%- if job.laboratory.url -%}
+                </a>
+            {%- endif -%}
+            </div>
+        {%- endif -%}
+        </div>
+        <div class="controls card-footer">
+            <button type="button" name="Details" aria-label="Show details" title="Toggle details" aria-controls="{{- job.key -}}-details" aria-expanded="false" class="details-btn btn">
+                <i class="fa-solid fa-circle-chevron-down fa-fw"></i>
+                <span class="visually-hidden">Toggle position details</span>
+            </button>
+            <div class="details" id="{{- job.key -}}-details">
+                <div class="title-description">
+                    <span class="label">Description</span>: {{ job.description }}
+                </div>
+                <div class="links">
+                    
+                </div>
+            </div>
+        </div>
+    </li>
+{%- endif -%}
+{%- endfor -%}
+</ul>
+
+
+<h2 id="academia"><i class="fa-solid fa-building-columns fa-fw" aria-hidden="true"></i>&nbsp;Academic Career</h2>
+
+<ul id="academic-positions-list" class="list-unstyled">
+{%- for position in site.data.academia -%}
+    <li id="{{- position.key -}}" class="title card">
+        <div class="info card-header">
+            <div class="year">
+                <span class="badge rounded-pill text-bg-secondary">
+                    {{- position.from }} - {% if position.to -%} {{- position.to -}} {%- else -%} current {%- endif -%}
+                </span>
+            </div>
+            <a href="#{{- position.key -}}" title="Permalink" class="card-link">
+                <span class="fa-solid fa-link fa-fw"></span>
+                <span class="visually-hidden">Permalink</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="job">
+                <span class="position">{{ position.position -}}</span> at
+            {%- if position.institution.url -%}
+                &#32;<a href="{{- position.institution.url -}}" target="_blank">
+            {%- endif -%}
+                    <span class="organization">{{ position.institution.name }}
+                {%- if position.institution.acronym -%}
+                    &#32;({{- position.institution.acronym -}})</span>
+                {%- endif -%}
+            {%- if position.institution.url -%}
+                </a>
+            {%- endif -%}
+                &#32;<span class="place">({{ position.institution.city }}, {{ position.institution.country }})</span>
+            </div>
+        {%- if position.department -%}
+            <div class="department">
+                <span class="label">Department</span>:
+            {%- if position.department.url -%}
+                &#32;<a href="{{- position.department.url -}}" target="_blank">
+            {%- endif -%}
+                    {{ position.department.name }}
+                {%- if position.department.acronym -%}
+                    &#32;({{- position.department.acronym -}})
+                {%- endif -%}
+            {%- if position.department.url -%}
+                </a>
+            {%- endif -%}
+            </div>
+        {%- endif -%}
+        {%- if position.laboratory -%}
+            <div class="laboratory">
+                <span class="label">Laboratory</span>:
+            {%- if position.laboratory.url -%}
+                &#32;<a href="{{- position.laboratory.url -}}" target="_blank">
+            {%- endif -%}
+                    {{ position.laboratory.name }}
+                {%- if position.laboratory.acronym -%}
+                    &#32;({{- position.laboratory.acronym -}})
+                {%- endif -%}
+            {%- if position.laboratory.url -%}
+                </a>
+            {%- endif -%}
+            </div>
+        {%- endif -%}
+        </div>
+        <div class="controls card-footer">
+            <button type="button" name="Details" aria-label="Show details" title="Toggle details" aria-controls="{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}-details" aria-expanded="false" class="details-btn btn">
+                <i class="fa-solid fa-circle-chevron-down fa-fw"></i>
+                <span class="visually-hidden">Toggle position details</span>
+            </button>
+            <div class="details" id="{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}-details">
+                <div class="title-description">
+                    <span class="label">Description</span>: {{ position.description }}
+                </div>
+                <div class="links">
+                    
+                </div>
+            </div>
+        </div>
+    </li>
+{%- endfor -%}
+</ul>
+
+<div class="alert alert-info" role="alert">
+For additional information about my research activity and publications, please visit the <a href="/works" class="alert-link"><i class="fa fa-book-open fa-fw"></i>Work page</a>. There, you will find a comprehensive overview of my projects and contributions to the field.
+</div>
+
+
+
 <h2 id="education"><i class="fa-solid fa-graduation-cap fa-fw" aria-hidden="true"></i>&nbsp;Education</h2>
 
 <ul id="titles-list" class="list-unstyled">
@@ -173,136 +395,6 @@ For a more comprehensive and detailed overview of my background, please feel fre
             </div>
         </div>
     </li>
-{%- endfor -%}
-</ul>
-
-
-<h2 id="academia"><i class="fa-solid fa-building-columns fa-fw" aria-hidden="true"></i>&nbsp;Academic Career</h2>
-
-<ul id="academic-positions-list" class="list-unstyled">
-{%- for position in site.data.academia -%}
-    <li id="{{- position.key -}}" class="title card">
-        <div class="info card-header">
-            <div class="year">
-                <span class="badge rounded-pill text-bg-secondary">
-                    {{- position.from }} - {% if position.to -%} {{- position.to -}} {%- else -%} current {%- endif -%}
-                </span>
-            </div>
-            <a href="#{{- position.key -}}" title="Permalink" class="card-link">
-                <span class="fa-solid fa-link fa-fw"></span>
-                <span class="visually-hidden">Permalink</span>
-            </a>
-        </div>
-        <div class="card-body">
-            <div class="job">
-                <span class="position">{{ position.position -}}</span> at
-            {%- if position.institution.url -%}
-                &#32;<a href="{{- position.institution.url -}}" target="_blank">
-            {%- endif -%}
-                    <span class="organization">{{ position.institution.name }}
-                {%- if position.institution.acronym -%}
-                    &#32;({{- position.institution.acronym -}})</span>
-                {%- endif -%}
-            {%- if position.institution.url -%}
-                </a>
-            {%- endif -%}
-                &#32;<span class="place">({{ position.institution.city }}, {{ position.institution.country }})</span>
-            </div>
-        {%- if position.department -%}
-            <div class="department">
-                <span class="label">Department</span>:
-            {%- if position.department.url -%}
-                &#32;<a href="{{- position.department.url -}}" target="_blank">
-            {%- endif -%}
-                    {{ position.department.name }}
-                {%- if position.department.acronym -%}
-                    &#32;({{- position.department.acronym -}})
-                {%- endif -%}
-            {%- if position.department.url -%}
-                </a>
-            {%- endif -%}
-            </div>
-        {%- endif -%}
-        {%- if position.laboratory -%}
-            <div class="laboratory">
-                <span class="label">Laboratory</span>:
-            {%- if position.laboratory.url -%}
-                &#32;<a href="{{- position.laboratory.url -}}" target="_blank">
-            {%- endif -%}
-                    {{ position.laboratory.name }}
-                {%- if position.laboratory.acronym -%}
-                    &#32;({{- position.laboratory.acronym -}})
-                {%- endif -%}
-            {%- if position.laboratory.url -%}
-                </a>
-            {%- endif -%}
-            </div>
-        {%- endif -%}
-        </div>
-        <div class="controls card-footer">
-            <button type="button" name="Details" aria-label="Show details" title="Toggle details" aria-controls="{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}-details" aria-expanded="false" class="details-btn btn">
-                <i class="fa-solid fa-circle-chevron-down fa-fw"></i>
-                <span class="visually-hidden">Toggle position details</span>
-            </button>
-            <div class="details" id="{{- position.position | replace: ' ', '_' -}}_{{- position.from | split: '/' | slice: -1 -}}-details">
-                <div class="title-description">
-                    <span class="label">Description</span>: {{ position.description }}
-                </div>
-                <div class="links">
-                    
-                </div>
-            </div>
-        </div>
-    </li>
-{%- endfor -%}
-</ul>
-
-<div class="alert alert-info" role="alert">
-For additional information about my research activity and publications, please visit the <a href="/works" class="alert-link"><i class="fa fa-book-open fa-fw"></i>Work page</a>. There, you will find a comprehensive overview of my projects and contributions to the field.
-</div>
-
-<h2 id="job"><i class="fa-solid fa-id-badge fa-fw" aria-hidden="true"></i>&nbsp;Work Experience</h2>
-
-<ul id="jobs-list" class="list-unstyled">
-{%- for job in site.data.jobs -%}
-{%- if job.link -%}
-{%- assign position = site.data.[job.link.list][job.link.index] -%}
-    <li id="{{- job.link.id -}}_mirror" class="title card">
-        <div class="info card-header">
-            <div class="year">
-                <span class="badge rounded-pill text-bg-secondary">
-                    {{- position.from }} - {% if position.to -%} {{- position.to -}} {%- else -%} current {%- endif -%}
-                </span>
-            </div>
-            <a href="#{{- job.link.id -}}_mirror" title="Permalink" class="card-link">
-                <span class="fa-solid fa-link fa-fw"></span>
-                <span class="visually-hidden">Permalink</span>
-            </a>
-        </div>
-        <div class="card-body">
-            <div class="job">
-                <span class="position">{{ position.position -}}</span> at
-            {%- if position.institution.url -%}
-                &#32;<a href="{{- position.institution.url -}}" target="_blank">
-            {%- endif -%}
-                    <span class="organization">{{ position.institution.name }}
-                {%- if position.institution.acronym -%}
-                    &#32;({{- position.institution.acronym -}})</span>
-                {%- endif -%}
-            {%- if position.institution.url -%}
-                </a>
-            {%- endif -%}
-                &#32;<span class="place">({{ position.institution.city }}, {{ position.institution.country }})</span>
-                <a href="#{{- job.link.id -}}" title="Go to this experience">
-                    <i class="fa-solid fa-circle-arrow-right fa-fw"></i>
-                    <span class="visually-hidden">Go to this experience</span>
-                </a>
-            </div>
-        </div>
-    </li>
-{%- else -%}
-    
-{%- endif -%}
 {%- endfor -%}
 </ul>
 
@@ -601,7 +693,7 @@ For additional information about my research activity and publications, please v
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('#titles-list button, #sport-activities-list button, #competition-activities-list button, #academic-positions-list button, #job-list button')
+    document.querySelectorAll('#titles-list button, #sport-activities-list button, #competition-activities-list button, #academic-positions-list button, #jobs-list button')
       .forEach(function (button) {
           button.addEventListener("click", function() {
               var key = button.closest("li").id;

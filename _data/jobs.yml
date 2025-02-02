@@ -1,6 +1,7 @@
 # - link:  # to reference other resource like academic positions
 #     list:
 #     index:
+#     id:
 #   field:
 #   from:
 #   to: (null for "current")
@@ -22,7 +23,22 @@
 #     - 
 #   description: |-
 
+
+- key: jaewa2025 
+  from: 01/2025
+  to: 
+  field: Software Analysis and Design
+  institution:
+    name: Jaewa
+    url: https://www.jaewa.com
+    city: Florence
+    country: Italy
+  positions:
+    - Software Developer
+  description: |-
+    Analysis, Design, and Development of custom Applications that meet specific needs, along with Integration Solutions that enable existing software to communicate effectively.
 - link:
     id: scholarship_researcher_2024
     list: academia
     index: 0
+  field: Academia
