@@ -18,7 +18,7 @@ toc_icon:
 ---
 
 <div id="photo">
-    <img src="assets/images/bio-photo.webp" draggable="false">
+    <img src="assets/images/bio-photo.webp" draggable="false" alt="Photograph of Kevin">
 </div>
 
 <div id="sign"><span id="name">Kevin Maggi</span>, M.Sc.</div>
@@ -91,7 +91,37 @@ toc_icon:
             </div>
         </div>
     {%- else -%}
-
+        <div class="card-header">
+            <span class="label">My current employment:</span>
+            <a href="/cv/#{{- job.key -}}" title="Go to this experience" class="card-link">
+                <i class="fa-solid fa-circle-arrow-right fa-fw"></i>
+                <span class="visually-hidden">Go to this experience</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="job">
+                <span class="positions">
+                    <span class="position">
+                    {%- for position in job.positions -%}
+                        {{- position -}}
+                        {%- unless forloop.last -%}, {% endunless -%}
+                    {%- endfor -%}
+                    </span>
+                </span>
+                at
+            {%- if job.institution.url -%}
+                &#32;<a href="{{- job.institution.url -}}" target="_blank">
+            {%- endif -%}
+                    <span class="organization">{{ job.institution.name }}
+                {%- if job.institution.acronym -%}
+                    &#32;({{- job.institution.acronym -}})</span>
+                {%- endif -%}
+            {%- if job.institution.url -%}
+                </a>
+            {%- endif -%}
+                &#32;<span class="place">({{ job.institution.city }}, {{ job.institution.country }})</span>
+            </div>
+        </div>
     {%- endif -%}
     </div>
 
@@ -202,3 +232,4 @@ toc_icon:
     
     <a href="https://www.researchgate.net/profile/Kevin-Maggi-4" target="_blank" title="My ResearchGate Profile"><i class="fa-fw fa-brands fa-researchgate"></i></a>
 </div>
+
