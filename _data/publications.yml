@@ -32,9 +32,58 @@
 #   extension_of: key
 #   extended_by: key
 #   awards:
-#     - Best Paper Award
+#     - name: Best Paper Award
+#       link:
+#       alt: description
 #   
 
+- key: Maggi2025Evolution
+  venue_type: journal
+  pub_type: special issue
+  title: "Evolution of Code Technical Debt in Microservices Architectures"
+  authors:
+    - K. Maggi
+    - R. Verdecchia
+    - L. Scommegna
+    - E. Vicario
+  year: 2025
+  venue:  
+    name: "Journal of Systems and Software"
+    acronym: JSS
+    year: 2025
+    special: "Quality in Software Architecture"
+  doi: 10.1016/j.jss.2024.112301
+  manuscript: jss2024
+  repository: 
+  rep_pkg: https://doi.org/10.6084/m9.figshare.25922506
+  slides:
+  abstract: |-
+    Context: Microservices are gaining significant traction in academic research and industry due to their advantages, and Technical Debt has long been a heavily researched metric in software quality context. However, to date, no study has attempted to understand how Code Tehnical Debt evolves in such architectures.
+    
+    Aim: This research aims to understand how Tehnical Debt evolves over time in microservice architectures by investigating its trends, patterns, and potential relations with microservices number.
+    
+    Method: We analyze the Technical Debt evolution of 13 open-source projects. We collect data from systems through automated source code analysis, statistically analyze results to identify Technical Debt trends and correlations with microservices number, and conduct a subsequent manual commit inspection.
+    
+    Results: Technical Debt increases over time, with periods of stability. The growth is related to microservices number, but its rate is not. The analysis revealed trend differences during initial development phases and later stages. Different activities can introduce Tehnical Debt, while its removal relies mainly on refactoring.
+    
+    Conclusions: Microservices independence is fundamental to maintain the technical debt under control, keeping it compartmentalized. The findings underscore the importance of Technical Debt management strategies to support the long-term success of microservices.
+  bibtex: |-
+    @article{Maggi2025Evolution,
+      author    = {Kevin Maggi and Roberto Verdecchia and Leonardo Scommegna and Enrico Vicario},
+      title     = {Evolution of code technical debt in microservices architectures},
+      journal   = {Journal of Systems and Software},
+      year      = {2025},
+      editor    = {Elsevier},
+      volume    = {222},
+      pages     = {112301},
+      issn      = {0164-1212},
+      date      = {2025-04},
+      doi       = {10.1016/j.jss.2024.112301},
+      url       = {https://www.sciencedirect.com/science/article/pii/S0164121224003455},
+      keywords  = {Microservice, Technical debt, Software evolution},
+      language  = {english},
+      note      = {Special Issue on Quality in Software Architecture}
+    }
 - key: Verdecchia2024Technical
   venue_type: conference
   pub_type: post-proceeding
@@ -158,7 +207,7 @@
     edition: 28
   doi: 10.1145/3661167.3661206
   repository: "https://github.com/KevinMaggi/CLAIM_rep-pkg"
-  rep_pkg: "https://figshare.com/s/bbf23e6b252d233ffbe3"
+  rep_pkg: "doi.org/10.6084/m9.figshare.25379212"
   manuscript: ease2024
   slides: ease2024
   abstract: |-
